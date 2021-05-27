@@ -1,0 +1,210 @@
+import React, { forwardRef, useRef, useCallback, useState, useEffect, memo, useContext } from 'react'
+import { useMediaList } from '../../hooks/useMediaList'
+import { View, Animated } from 'react-native'
+import Style from '../../styles/Style'
+import AnimatedFocusableHighlight from '../focusable/AnimatedFocusableHighlight'
+import { useFocusEffect } from '@react-navigation/core'
+import { SwimLaneGenericDefaultStyle } from './style/SwimLaneGeneric.style'
+import { TVAPPContext } from '../../contexts/TVAPPContext'
+import { getClonedRenderItem } from '../../utils/tools'
+import AnimatedBorderFocusableHighlight from '../focusable/AnimatedBorderFocusableHighlight'
+
+const SWIMLANE_CELL_WIDTH = Style.ratio(479)
+
+/****************
+  TODO : follow PR --> https://github.com/necolas/react-native-web/pull/1566
+   Add support for TV Devices: Platform.isTV hasTVPreferredFocus nextFocusLeft nextFocusRight nextFocusTop nextFocusBottom
+   - Next Focused Element need to be showing. swimlane scroll to index 0 when none of these children are focused
+   - Check and modify setSwimLaneFocus function with the swimlane focus management starting by index 0 at the beginning
+ ***************/
+
+/** SWIMLANE COMPONENT - WEB
+ *
+ * @param id
+ * @param data
+ * @param renderItem
+ * @param title
+ * @param parent
+ * @param type
+ * @param reducer
+ * @param componentStyle
+ * @param focusElementRef
+ * @param onLayout(name, list)
+ * @param onItemPress(item)
+ * @param onItemFocus(item, index, key)
+ * @param onItemBlur(item)
+ *
+ *******************/
+
+const SwimLane = forwardRef(({
+    id,
+    data,
+    renderItem,
+    title,
+    parent,
+    type,
+    reducer,
+    componentStyle,
+    onItemPress,
+    onLayout,
+    onItemFocus,
+    onItemBlur
+}, ref) => {
+    const { FocusManager, Theme } = useContext(TVAPPContext)
+    const { theme } = Theme
+    const [focusType] = useState(FocusManager.getFocus().type)
+    const [mediaList, loading] = useMediaList(data)
+    const rowsRef = useRef([])
+    const SwimLaneRef = useRef(null)
+    const [isSwimLaneFocused, setSwimLaneFocused] = useState(false)
+    const [isSwimLaneElementFocused, setSwimLaneElementFocused] = useState(false)
+    const [xPosition] = useState(new Animated.Value(0))
+    const style = { ...SwimLaneGenericDefaultStyle, ...theme?.SwimLane, ...componentStyle }
+    const { dispatch, action } = reducer || {}
+    const { parentIndex, parentName } = parent || {}
+
+    useFocusEffect(
+        useCallback(() => {
+            console.log('swimlane WEB useCallback INIT')
+            return () => {
+                console.log('swimlane WEB useCallback LEAVE')
+            }
+        }, [])
+    )
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            if (!isSwimLaneElementFocused) {
+                setSwimLaneFocused(false)
+            }
+        }, 500)
+
+        if (isSwimLaneElementFocused && !isSwimLaneFocused) {
+            setSwimLaneFocused(true)
+        }
+
+        return () => {
+            clearTimeout(timeout)
+        }
+    }, [isSwimLaneElementFocused])
+
+    // Native animation with use native driver prop
+    const goToIndex = (index) => {
+        const interval = (SWIMLANE_CELL_WIDTH + Style.ratio(18))
+        const length = mediaList.length
+        let stepValue = 0
+        if (index === 0 || length <= 3) {
+            stepValue = 0
+        } else if (index > length - 3 && index < length - 1) {
+            stepValue = -(((interval) * (index - 1)) - (interval))
+        } else if (index >= length - 1) {
+            stepValue = -(((interval) * (index - 1)) - (interval * 1.5))
+        } else {
+            stepValue = -((interval) * (index - 1))
+        }
+
+        Animated.timing(
+            xPosition,
+            {
+                toValue: stepValue,
+                duration: 350,
+                useNativeDriver: true
+            }
+        ).start(() => {})
+    }
+
+    const getRef = useCallback((index) => {
+        return (
+            (ref) => {
+                rowsRef.current[index] = ref
+            }
+        )
+    })
+
+    function onPress (item) {
+        const tempItem = { ...item, type }
+        if (onItemPress) {
+            onItemPress(tempItem)
+        }
+    }
+
+    function onFocus (item, index, key) {
+        FocusManager.setFocus({ ref: rowsRef.current[index], parent, key })
+        setSwimLaneElementFocused(true)
+        reducer && dispatch({ type: action, index, media: item })
+        goToIndex(index)
+        if (onItemFocus) {
+            onItemFocus(item, index, key)
+        }
+    }
+
+    function onBlur (item) {
+        setSwimLaneElementFocused(false)
+        if (onItemBlur) {
+            onItemBlur(item)
+        }
+    }
+
+    function onLayoutCallback (name, list, position) {
+        FocusManager.setSwimLanes({ name, list, viewed: false, position })
+        if (onLayout) {
+            onLayout(name, list, position)
+        }
+    }
+
+    function setSwimLaneFocus (index) {
+        return true // isSwimLaneFocused ? true : index === 0
+    }
+
+    const getFocusableProps = (item, index, key) => {
+        return {
+            ref: getRef(index),
+            focusable: setSwimLaneFocus(index),
+            onPress: () => onPress(item),
+            onFocus: () => onFocus(item, index, key),
+            onBlur: () => onBlur(item),
+            underlayColor: style.buttonFocusedColor,
+            style: [style.itemWeb],
+            focusStyle: style.focusStyle
+        }
+    }
+
+    const buildSwimLaneScale = useCallback(() => {
+        return mediaList.map((item, index) => {
+            const { imageUrl, isEventStarted, prettyHour, prettyDuration, bait, title, description } = item
+            const key = `${id}_${index}`
+            return <AnimatedFocusableHighlight key={key} nativeID={key} {...getFocusableProps(item, index, key)}>
+                {getClonedRenderItem(renderItem, { key: index, imageUrl, isEventStarted, prettyHour, prettyDuration, bait, title, description, theme })}
+            </AnimatedFocusableHighlight>
+        })
+    })
+
+    const buildSwimLaneBorder = useCallback(() => {
+        return mediaList.map((item, index) => {
+            const { imageUrl, isEventStarted, prettyHour, prettyDuration, bait, title, description } = item
+            const key = `${id}_${index}`
+            return <AnimatedBorderFocusableHighlight key={key} nativeID={key} {...getFocusableProps(item, index, key)}>
+                {getClonedRenderItem(renderItem, { key: index, imageUrl, isEventStarted, prettyHour, prettyDuration, bait, title, description, theme })}
+            </AnimatedBorderFocusableHighlight>
+        })
+    })
+
+    return (
+        <View
+            ref={ref}
+        >
+            {title && title}
+            <Animated.View
+                ref={SwimLaneRef}
+                onLayout={(event) => {
+                    onLayoutCallback(`${parentName}_${parentIndex}`, rowsRef.current, event.nativeEvent.layout)
+                }}
+                style={[style.webView, { transform: [{ translateX: xPosition }] }]}
+            >
+                {!loading && (focusType === 'border') ? buildSwimLaneBorder() : buildSwimLaneScale()}
+            </Animated.View>
+        </View>
+    )
+})
+
+export default memo(SwimLane)

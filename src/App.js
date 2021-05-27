@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, View, Text } from 'react-native'
+import SwimLane from './lib'
 
 const App = () => {
     return (
