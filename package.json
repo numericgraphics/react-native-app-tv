@@ -1,0 +1,54 @@
+{
+  "name": "RTSAppTv",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "web": "react-app-rewired start",
+    "web:build": "react-app-rewired build",
+    "test": "jest",
+    "lint": "eslint .",
+    "clearAll": "watchman watch-del-all && rm -rf node_modules && rm yarn.lock && yarn cache clean && yarn install && rm -rf /tmp/metro-* && rm -fr $TMPDIR/metro-cache"
+  },
+  "dependencies": {
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-native": "npm:react-native-tvos@0.63.4-0",
+    "react-native-web": "0.16.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/runtime": "^7.14.0",
+    "@babel/plugin-syntax-jsx": "^7.12.13",
+    "@babel/preset-react": "^7.13.13",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "eslint": "^7.19.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-standard": "^4.0.2",
+    "metro-react-native-babel-preset": "^0.66.0",
+    "react-test-renderer": "16.13.1",
+    "react-app-rewired": "^2.1.8",
+    "react-scripts": "^4.0.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
