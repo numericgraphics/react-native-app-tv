@@ -1,12 +1,11 @@
 import React, { forwardRef, useRef, useCallback, useState, useEffect, memo, useContext } from 'react'
-import { useMediaList } from '../../hooks/useMediaList'
 import { View, Animated } from 'react-native'
-import Style from '../../styles/Style'
+import Style from '../utils/Style'
+import { getClonedRenderItem } from '../utils/tools'
 import AnimatedFocusableHighlight from '../focusable/AnimatedFocusableHighlight'
-import { useFocusEffect } from '@react-navigation/core'
-import { SwimLaneGenericDefaultStyle } from './style/SwimLaneGeneric.style'
-import { TVAPPContext } from '../../contexts/TVAPPContext'
-import { getClonedRenderItem } from '../../utils/tools'
+import { SwimLaneGenericDefaultStyle } from '../styles/SwimLaneGeneric.style'
+import TVAPPContext from '../TVAPPContext'
+import { useMediaList } from '../utils/useMediaList'
 import AnimatedBorderFocusableHighlight from '../focusable/AnimatedBorderFocusableHighlight'
 
 const SWIMLANE_CELL_WIDTH = Style.ratio(479)
@@ -62,15 +61,6 @@ const SwimLane = forwardRef(({
     const style = { ...SwimLaneGenericDefaultStyle, ...theme?.SwimLane, ...componentStyle }
     const { dispatch, action } = reducer || {}
     const { parentIndex, parentName } = parent || {}
-
-    useFocusEffect(
-        useCallback(() => {
-            console.log('swimlane WEB useCallback INIT')
-            return () => {
-                console.log('swimlane WEB useCallback LEAVE')
-            }
-        }, [])
-    )
 
     useEffect(() => {
         const timeout = setTimeout(() => {

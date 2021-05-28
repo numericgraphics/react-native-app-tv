@@ -3,7 +3,7 @@ import { findNodeHandle, ScrollView, View, Platform } from 'react-native'
 import { SwimLaneGenericDefaultStyle } from '../styles/SwimLaneGeneric.style'
 import AnimatedBorderFocusableHighlight from '../focusable/AnimatedBorderFocusableHighlight'
 import AnimatedFocusableHighlight from '../focusable/AnimatedFocusableHighlight'
-import { TVAPPContext } from '../context/TVAPPContext'
+import TVAPPContext from '../TVAPPContext'
 import { useMediaList } from '../utils/useMediaList'
 import { getClonedRenderItem } from '../utils/tools'
 

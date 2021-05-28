@@ -1,35 +1,13 @@
 import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
-import SwimLane from './lib'
+import { TVAPPProvider } from './lib'
+import Home from './views/Home'
 
 const App = () => {
     return (
-        <View style={styles.container}>
-            <Text style={styles.text}>RTS APP TV</Text>
-            <Text style={styles.subText}>template</Text>
-        </View>
+        <TVAPPProvider config={{ focus: { type: 'border' } }}>
+            <Home/>
+        </TVAPPProvider>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        width: '100%',
-        height: '100%',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'orange'
-    },
-    text: {
-        fontSize: 24,
-        fontWeight: '600',
-        color: 'black'
-    },
-    subText: {
-        fontSize: 15,
-        fontWeight: '200',
-        color: 'gray'
-    }
-})
 
 export default App

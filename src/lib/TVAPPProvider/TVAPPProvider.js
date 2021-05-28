@@ -1,14 +1,14 @@
-import React, { createContext, useReducer, useEffect, useState } from 'react'
+import React, { useReducer, useEffect, useState } from 'react'
 import { GlobalReducer, GlobalStates, InitialGlobalState } from '../reducers/GlobalReducer'
+import TVAPPContext from '../TVAPPContext'
 import FocusManager from '../managers/FocusManager'
 import { BackHandler, NativeModules, Platform, TVEventHandler } from 'react-native'
-import { navigationRef } from '../Navigation'
+// import { navigationRef } from '../Navigation'
 import { capitalizeFirstLetter } from '../utils/tools'
 import { InitialKeyEventState, KeyEventsReducer, KeyEventStates } from '../reducers/KeyEventsReducer'
 
-export const TVAPPContext = createContext(undefined)
-
-export function TVAPPProvider ({ children, ...props }) {
+function TVAPPProvider ({ children, ...props }) {
+    const { config, navigation } = props
     const { SRGExitApp } = NativeModules
     const [state, dispatch] = useReducer(KeyEventsReducer, InitialKeyEventState)
     const KeyEventState = { state, dispatch, KeyEventStates }
@@ -19,18 +19,18 @@ export function TVAPPProvider ({ children, ...props }) {
 
     function backAction (e) {
         // Exit for tvOS
-        if (navigationRef.current.getCurrentRoute().name === 'Home' && Platform.OS === 'ios') {
+        if (navigation?.navigationRef.current.getCurrentRoute().name === 'Home' && Platform.OS === 'ios') {
             SRGExitApp.exitApp()
         }
 
         // Escape actions
         try {
             return !!(
-                navigationRef.current &&
-          navigationRef.current.getCurrentRoute().name === 'Home'
+                navigation?.navigationRef.current &&
+                navigation?.navigationRef.current.getCurrentRoute().name === 'Home'
             )
         } catch (e) {
-            console.log('Home backAction ERROR', e)
+            console.log('TVAPPProvider backAction ERROR', e)
         }
     }
 
@@ -47,9 +47,9 @@ export function TVAPPProvider ({ children, ...props }) {
 
     function keyDownAction (e) {
         try {
-            if (e.code === 'Escape' && navigationRef.current.getCurrentRoute().name !== 'Home') {
-                console.log('App.web - keyDownAction history back')
-                navigationRef.current.goBack()
+            if (e.code === 'Escape' && navigation?.navigationRef.current.getCurrentRoute().name !== 'Home') {
+                console.log('TVAPPProvider - keyDownAction history back')
+                navigation?.navigationRef.current.goBack()
             }
             if (
                 e.code === 'ArrowRight' ||
@@ -62,7 +62,7 @@ export function TVAPPProvider ({ children, ...props }) {
                 dispatch({ type: e.code, payload: { timeStamp: e.timeStamp } })
             }
         } catch (e) {
-            console.log('App web - keyDownAction ERROR', e)
+            console.log('TVAPPProvider - keyDownAction ERROR', e)
         }
     }
 
@@ -82,8 +82,9 @@ export function TVAPPProvider ({ children, ...props }) {
     }, [globalState])
 
     useEffect(() => {
-        if (Object.entries(props.config).length > 0) {
-            for (const [key, value] of Object.entries(props.config)) {
+        console.log('TVAPPProvider - useEffect init')
+        if (Object.entries(config).length > 0) {
+            for (const [key, value] of Object.entries(config)) {
                 if (key === 'focus') {
                     FocusManager.setFocus(value)
                 } else if (key === 'theme') {
@@ -97,7 +98,7 @@ export function TVAPPProvider ({ children, ...props }) {
             tvEventHandler.enable(this, tvEventHandling)
 
             return () => {
-                console.log('APP - useEffect natif - killed')
+                console.log('TVAPPProvider - useEffect natif - killed')
                 BackHandler.removeEventListener('hardwareBackPress', backAction)
                 tvEventHandler.disable()
             }
@@ -112,3 +113,5 @@ export function TVAPPProvider ({ children, ...props }) {
 
     return <TVAPPContext.Provider value={{ KeyEventState, GlobalState, FocusManager, Theme }}>{children}</TVAPPContext.Provider>
 }
+
+export default TVAPPProvider
