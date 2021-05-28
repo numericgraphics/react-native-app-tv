@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
 import { Image, Text, View } from 'react-native'
-import { MediaItemFullDefaultStyle } from '../style/MediaItemFullDefaultStyle.style'
-import { MediaItemDefaultStyle } from '../style/MediaItemDefaultStyle.style'
 import LinearGradient from 'react-native-linear-gradient'
-import MediaItemTime from '../utils/MediaItemTime'
+import { MediaItemFullDefaultStyle } from '../styles/MediaItemFullDefaultStyle.style'
+import { MediaItemDefaultStyle } from '../styles/MediaItemDefaultStyle.style'
+import MediaItemTime from './MediaItemTime'
 
 const MediaItem = ({
     imageUrl,

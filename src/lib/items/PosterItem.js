@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import { Image, Text, View } from 'react-native'
-import { MediaItemFullDefaultStyle } from '../style/MediaItemFullDefaultStyle.style'
-import { PosterItemDefaultStyle } from '../style/PosterItemDefaultStyle.style'
+import { MediaItemFullDefaultStyle } from '../styles/MediaItemFullDefaultStyle.style'
+import { PosterItemDefaultStyle } from '../styles/PosterItemDefaultStyle.style'
 
 const PosterItem = ({
     imageUrl,

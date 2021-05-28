@@ -1,5 +1,5 @@
-import { Colors } from '../../../styles/Colors'
-import Style from '../../../styles/Style'
+import { Colors } from '../utils/Colors'
+import Style from '../utils/Style'
 
 export const GridScrollViewDefaultStyle = {
     /* System design

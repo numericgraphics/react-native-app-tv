@@ -9,7 +9,8 @@ module.exports = {
     webpack: (config, env) => {
         config.resolve = {
             alias: {
-                'react-native$': 'react-native-web'
+                'react-native$': 'react-native-web',
+                'react-native-linear-gradient': 'react-native-web-linear-gradient'
             },
             extensions: ['.web.js', '.js']
         }
@@ -27,6 +28,7 @@ module.exports = {
         paths.appPublic = paths.appPath + '/web/public'
         paths.appHtml = paths.appPath + '/web/public/index.html'
         paths.appIndexJs = paths.appPath + '/web/index.js'
+        console.log('paths', paths)
         return paths
     }
 }

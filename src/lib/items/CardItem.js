@@ -1,8 +1,8 @@
 import React, { memo } from 'react'
 import { Image, Text, View } from 'react-native'
-import { MediaItemFullDefaultStyle } from '../style/MediaItemFullDefaultStyle.style'
-import { CardItemDefaultStyle } from '../style/CardItemDefaultStyle.style'
 import LinearGradient from 'react-native-linear-gradient'
+import { MediaItemFullDefaultStyle } from '../styles/MediaItemFullDefaultStyle.style'
+import { CardItemDefaultStyle } from '../styles/CardItemDefaultStyle.style'
 
 const CardItem = ({
     imageUrl,

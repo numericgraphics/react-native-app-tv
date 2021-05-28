@@ -53,7 +53,9 @@ class FocusManager {
     }
 
     modifySwimLane (name, key, value) {
-        this.swimLanes[name][key] = value
+        if (Object.entries(this.swimLanes).length > 0) {
+            this.swimLanes[name][key] = value
+        }
     }
 
     setCurrentKey (key) {

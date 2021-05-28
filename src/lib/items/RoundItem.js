@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import { Image, Text, View } from 'react-native'
-import { MediaItemFullDefaultStyle } from '../style/MediaItemFullDefaultStyle.style'
-import { RoundItemDefaultStyle } from '../style/RoundItemDefaultStyle.style'
+import { MediaItemFullDefaultStyle } from '../styles/MediaItemFullDefaultStyle.style'
+import { RoundItemDefaultStyle } from '../styles/RoundItemDefaultStyle.style'
 
 const RoundItem = ({
     imageUrl,

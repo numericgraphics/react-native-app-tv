@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
 import { Image, Text, View } from 'react-native'
-import { MediaItemFullDefaultStyle } from '../style/MediaItemFullDefaultStyle.style'
-import { CarouselItemDefaultStyle } from '../style/CarouselItemDefaultStyle.style'
 import LinearGradient from 'react-native-linear-gradient'
-import MediaItemTime from '../utils/MediaItemTime'
+import { MediaItemFullDefaultStyle } from '../styles/MediaItemFullDefaultStyle.style'
+import { CarouselItemDefaultStyle } from '../styles/CarouselItemDefaultStyle.style'
+import MediaItemTime from './MediaItemTime'
 
 const CarouselItem = ({
     imageUrl,

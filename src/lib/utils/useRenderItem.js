@@ -1,12 +1,12 @@
 import React from 'react'
 import { MEDIA_TYPE } from '../utils/Constants'
-import RoundItem from '../components/swimlane/items/RoundItem'
-import TopicItem from '../components/swimlane/items/TopicItem'
-import PosterItem from '../components/swimlane/items/PosterItem'
-import MediaLabelItem from '../components/swimlane/items/MediaLabelItem'
-import CardItem from '../components/swimlane/items/CardItem'
-import CarouselItem from '../components/swimlane/items/CarouselItem'
-import MediaItem from '../components/swimlane/items/MediaItem'
+import RoundItem from '../items/RoundItem'
+import TopicItem from '../items/TopicItem'
+import PosterItem from '../items/PosterItem'
+import MediaLabelItem from '../items/MediaLabelItem'
+import CardItem from '../items/CardItem'
+import CarouselItem from '../items/CarouselItem'
+import MediaItem from '../items/MediaItem'
 
 function useRenderItem (type) {
     switch (type) {
@@ -27,5 +27,4 @@ function useRenderItem (type) {
         return <MediaItem/>
     }
 }
-
-export { useRenderItem }
+export default useRenderItem

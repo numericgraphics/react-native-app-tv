@@ -1,5 +1,5 @@
-import Style from '../../../styles/Style'
-import { Colors } from '../../../styles/Colors'
+import Style from '../utils/Style'
+import { Colors } from '../utils/Colors'
 
 export const MediaItemDefaultStyle = {
     itemContainer: {

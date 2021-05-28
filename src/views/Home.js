@@ -1,30 +1,53 @@
-import React, { useContext, useEffect } from 'react'
-import { SwimLane, TVAPPContext } from '../lib'
+/* eslint-disable */
+import React, { useContext, useEffect, useRef, useState } from 'react'
+import { SwimLane, TVAPPContext, useRenderItem } from '../lib'
 import { StyleSheet, Text, View } from 'react-native'
+import mockData from '../assets/mockData/mockData'
+
 const Home = (props) => {
     const { FocusManager, GlobalState } = useContext(TVAPPContext)
+    const swimLaneRef = useRef(null)
+    const [data] = useState(mockData[0])
 
     useEffect(() => {
-        // acces au FocusManager et GlobalState
-        console.log('Home - useEffect FocusManager', FocusManager)
-        console.log('Home - useEffect GlobalState', GlobalState)
-        console.log('Home - useEffect GlobalState', SwimLane)
+        console.log('Home - useEffect init')
+
     }, [])
 
     return <View style={styles.container}>
-        <Text style={styles.text}>RTS APP TV</Text>
-        <Text style={styles.subText}>home</Text>
+        <View style={styles.header}>
+            <Text style={styles.text}>RTS APP TV</Text>
+            <Text style={styles.subText}>home</Text>
+        </View>
+        <View style={styles.content}>
+            {data && <SwimLane
+                id={'test'}
+                ref={swimLaneRef}
+                type={data?.layout.mediaType}
+                data={data}
+                parent={{ parentIndex: 0, parentName: 'home' }}
+                renderItem={useRenderItem(data?.layout.mediaType)}
+                onItemPress={(item) => {
+                    console.log('onItemPress', item)
+                }}
+            />}
+        </View>
     </View>
 }
 
 const styles = StyleSheet.create({
     container: {
-        width: '100%',
-        height: '100%',
+        flex: 1,
         flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
         backgroundColor: 'orange'
+    },
+    header: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    content: {
+        flex: 2
     },
     text: {
         fontSize: 24,

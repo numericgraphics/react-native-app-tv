@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import { Text } from 'react-native'
-import { MediaItemTimeDefaultStyle } from '../style/MediaItemTimeDefaultStyle.style'
+import { MediaItemTimeDefaultStyle } from '../styles/MediaItemTimeDefaultStyle.style'
 
 const MediaItemTime = ({
     isEventStarted,

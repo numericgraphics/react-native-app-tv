@@ -1,8 +1,8 @@
 import React, { memo } from 'react'
 import { Image, Text, View } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
-import MediaItemTime from '../../swimlane/utils/MediaItemTime'
-import { FlatScrollViewItemDefaultStyle } from '../style/FlatScrollViewItemDefaultStyle.style'
+import MediaItemTime from './MediaItemTime'
+import { FlatScrollViewItemDefaultStyle } from '../styles/FlatScrollViewItemDefaultStyle.style'
 
 const FlatScrollViewItem = ({
     imageUrl,

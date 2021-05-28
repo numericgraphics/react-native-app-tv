@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import { Text } from 'react-native'
-import { SwimLaneTitleDefaultStyle } from '../style/SwimLaneHeaderTitleDefaultStyle.style'
+import { SwimLaneTitleDefaultStyle } from '../styles/SwimLaneHeaderTitleDefaultStyle.style'
 
 const SwimLaneHeaderTitle = ({
     title,
