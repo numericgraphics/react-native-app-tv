@@ -47,7 +47,7 @@ const SwimLane = forwardRef(({
     const SwimLaneRef = useRef(null)
     const [isSwimLaneFocused, setSwimLaneFocused] = useState(false)
     const [isSwimLaneElementFocused, setSwimLaneElementFocused] = useState(false)
-    const [focusType] = useState(FocusManager.getFocus().type)
+    const [focusType, setFocusType] = useState(FocusManager.getFocus().type)
     const style = { ...SwimLaneGenericDefaultStyle, ...theme?.SwimLane, ...componentStyle }
     const { dispatch, action } = reducer || {}
     const { parentIndex, parentName } = parent || {}
@@ -57,6 +57,11 @@ const SwimLane = forwardRef(({
 
         return () => {}
     }, [])
+
+    useEffect(() => {
+        setFocusType(FocusManager.getFocus().type)
+        return () => {}
+    }, [FocusManager.getFocus().type])
 
     useEffect(() => {
         const timeout = setTimeout(() => {
