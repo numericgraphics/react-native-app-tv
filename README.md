@@ -4,8 +4,8 @@
 ### RTS TV App Framework ###
 * Simply and easily build an application for Smart TV, with a unique project for AndroidTV, TvOS and Web platforms (Tizen, webOs)
 * current version : 0.0.3
-* [Demo](https://bitbucket.org/tutorials/markdowndemo)
-* [Project template](https://bitbucket.org/tutorials/markdowndemo)
+* [Demo](https://bitbucket.org/rtsmb/rts-app-tv-demo)
+* [Project template](https://bitbucket.org/rtsmb/rts-app-tv_template/src/master/)
 
 ### Install ###
 ```
