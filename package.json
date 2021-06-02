@@ -1,10 +1,10 @@
 {
   "name": "rts-app-tv",
-  "version": "0.0.2",
-  "description": "Simples TV App components",
+  "version": "0.0.3",
+  "description": "RTS TV App Framework",
   "private": false,
-  "main": "src/lib/index.js",
-  "module": "src/lib/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "repository": {
     "type": "bitbucket",
     "url": "https://bitbucket.org:rtsmb/rts-app-tv.git"
@@ -17,7 +17,8 @@
     "web:build": "react-app-rewired build",
     "test": "jest",
     "lint": "eslint .",
-    "clearAll": "watchman watch-del-all && rm -rf node_modules && rm yarn.lock && yarn cache clean && yarn install && rm -rf /tmp/metro-* && rm -fr $TMPDIR/metro-cache"
+    "clearAll": "watchman watch-del-all && rm -rf node_modules && rm yarn.lock && yarn cache clean && yarn install && rm -rf /tmp/metro-* && rm -fr $TMPDIR/metro-cache",
+    "dist": "npx babel src/lib --out-dir dist"
   },
   "dependencies": {
     "react": "16.13.1",
