@@ -3,7 +3,7 @@
 
 ### RTS TV App Framework ###
 * Simply and easily build an application for Smart TV, with a unique project for AndroidTV, TvOS and Web platforms (Tizen, webOs)
-* current version : 0.0.3
+* current version : 0.0.16
 * [Demo](https://bitbucket.org/rtsmb/rts-app-tv-demo)
 * [Project template](https://bitbucket.org/rtsmb/rts-app-tv_template/src/master/)
 
@@ -88,7 +88,7 @@ Add the three dependencies :
 ```
 "react-native-linear-gradient": "^2.5.6",
 "react-native-web-linear-gradient": "^1.1.1",
-"rts-app-tv": "^0.0.3"`
+"rts-app-tv": "^0.0.16"`
 ```
 
 You also maybe should add inside `config-overrides.js` / `alias` this line : 
