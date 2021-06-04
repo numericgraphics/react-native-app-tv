@@ -1,5 +1,5 @@
 import Style from '../utils/Style'
-import { Colors } from '../utils/Colors'
+import Colors from '../utils/Colors'
 import { Platform } from 'react-native'
 
 export const MediaItemTimeDefaultStyle = {

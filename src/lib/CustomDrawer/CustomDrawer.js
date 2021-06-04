@@ -1,14 +1,12 @@
 import React, { useEffect, useRef, useState, memo, useCallback, useMemo, useContext } from 'react'
 import { Animated, findNodeHandle, Image, Text, View, Platform } from 'react-native'
 import FocusableHighlight from '../focusable/FocusableHighlight'
-import { CustomDrawerDefaultStyle } from './CustomDrawerDefaultStyle.style'
-import { randomColors } from '../../utils/tools'
-import ColorIcon from '../utils/ColorIcon'
-import { TVAPPContext } from '../../contexts/TVAPPContext'
+import { CustomDrawerDefaultStyle } from '../styles/CustomDrawerDefaultStyle.style'
+import { randomColors } from '../utils/tools'
+import ColorIcon from '../items/ColorIcon'
+import TVAPPContext from '../TVAPPContext/TVAPPContext'
 
-// TODO mettre le drawer dans le package ...
-
-/** CUSTOM DRAWER WEB/NATIF
+/** CUSTOM DRAWER WEB / NATIVE
  *
  * @param theme
  * @param navigation

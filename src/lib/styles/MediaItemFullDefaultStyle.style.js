@@ -1,5 +1,5 @@
 import Style from '../utils/Style'
-import { Colors } from '../utils/Colors'
+import Colors from '../utils/Colors'
 
 // TODO: deep merge des attributs ici avec les sous-classes de style par défaut
 

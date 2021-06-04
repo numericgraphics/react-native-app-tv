@@ -11,8 +11,6 @@ export const ITEM_TYPE = Object.freeze({
 
 export const THEMES = Object.freeze({
     LAYOUT: 'LAYOUT',
-    // SRGSSR: 'SRGSSR',
-    // EXOTIC: 'EXOTIC',
     DEFAULT: 'DEFAULT'
 })
 

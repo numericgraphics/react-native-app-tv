@@ -1,10 +1,10 @@
 import React, { useCallback, memo, useContext } from 'react'
 import { Text, View } from 'react-native'
 import SwimLane from '../SwimLane/SwimLane'
-import SwimLaneTitle from '../SwimLane/utils/SwimLaneHeaderTitle'
-import MediaItem from '../SwimLane/items/MediaItem'
-import { GridScrollViewDefaultStyle } from './style/GridScrollViewDefaultStyle.style'
-import { TVAPPContext } from '../../contexts/TVAPPContext'
+import SwimLaneTitle from '../items/SwimLaneHeaderTitle'
+import MediaItem from '../items/MediaItem'
+import { GridScrollViewDefaultStyle } from '../styles/GridScrollViewDefaultStyle.style'
+import TVAPPContext from '../TVAPPContext'
 
 /** GridScrollView - NATIVE - WEB
  *

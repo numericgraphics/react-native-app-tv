@@ -1,5 +1,5 @@
 import Style from '../utils/Style'
-import { Colors } from '../utils/Colors'
+import Colors from '../utils/Colors'
 
 const itemWidth = Style.ratio(414)
 const itemHeight = itemWidth / 1.777777

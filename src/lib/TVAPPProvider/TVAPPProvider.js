@@ -3,7 +3,6 @@ import { GlobalReducer, GlobalStates, InitialGlobalState } from '../reducers/Glo
 import TVAPPContext from '../TVAPPContext'
 import FocusManager from '../managers/FocusManager'
 import { BackHandler, NativeModules, Platform, TVEventHandler } from 'react-native'
-// import { navigationRef } from '../Navigation'
 import { capitalizeFirstLetter } from '../utils/tools'
 import { InitialKeyEventState, KeyEventsReducer, KeyEventStates } from '../reducers/KeyEventsReducer'
 

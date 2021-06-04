@@ -1,5 +1,5 @@
 import { PixelRatio, StyleSheet, Dimensions } from 'react-native'
-import { Colors } from './Colors'
+import Colors from './Colors'
 
 // Get pixel ratio
 const pixelRatio = PixelRatio.get()

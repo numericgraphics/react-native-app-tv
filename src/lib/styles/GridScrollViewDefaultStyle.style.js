@@ -1,4 +1,4 @@
-import { Colors } from '../utils/Colors'
+import Colors from '../utils/Colors'
 import Style from '../utils/Style'
 
 export const GridScrollViewDefaultStyle = {
