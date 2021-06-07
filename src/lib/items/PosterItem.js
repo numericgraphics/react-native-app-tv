@@ -3,6 +3,13 @@ import { Image, Text, View } from 'react-native'
 import { MediaItemFullDefaultStyle } from '../styles/MediaItemFullDefaultStyle.style'
 import { PosterItemDefaultStyle } from '../styles/PosterItemDefaultStyle.style'
 
+/**
+ *
+ * @param imageUrl
+ * @param title
+ * @param theme
+ */
+
 const PosterItem = ({
     imageUrl,
     title,

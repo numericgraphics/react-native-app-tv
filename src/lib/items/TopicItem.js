@@ -4,6 +4,13 @@ import LinearGradient from 'react-native-linear-gradient'
 import { MediaItemFullDefaultStyle } from '../styles/MediaItemFullDefaultStyle.style'
 import { TopicItemDefaultStyle } from '../styles/TopicItemDefaultStyle.style'
 
+/**
+ *
+ * @param imageUrl
+ * @param title
+ * @param theme
+ */
+
 const TopicItem = ({
     imageUrl,
     title,

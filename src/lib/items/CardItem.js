@@ -4,6 +4,14 @@ import LinearGradient from 'react-native-linear-gradient'
 import { MediaItemFullDefaultStyle } from '../styles/MediaItemFullDefaultStyle.style'
 import { CardItemDefaultStyle } from '../styles/CardItemDefaultStyle.style'
 
+/**
+ *
+ * @param imageUrl
+ * @param title
+ * @param bait
+ * @param theme
+ */
+
 const CardItem = ({
     imageUrl,
     title,

@@ -3,6 +3,13 @@ import { Image, Text, View } from 'react-native'
 import { MediaItemFullDefaultStyle } from '../styles/MediaItemFullDefaultStyle.style'
 import { RoundItemDefaultStyle } from '../styles/RoundItemDefaultStyle.style'
 
+/**
+ *
+ * @param imageUrl
+ * @param title
+ * @param theme
+ */
+
 const RoundItem = ({
     imageUrl,
     title,

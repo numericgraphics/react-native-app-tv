@@ -5,6 +5,16 @@ import { MediaItemFullDefaultStyle } from '../styles/MediaItemFullDefaultStyle.s
 import { MediaItemDefaultStyle } from '../styles/MediaItemDefaultStyle.style'
 import MediaItemTime from './MediaItemTime'
 
+/**
+ *
+ * @param imageUrl
+ * @param title
+ * @param bait
+ * @param isEventStarted
+ * @param prettyDuration
+ * @param theme
+ */
+
 const MediaItem = ({
     imageUrl,
     title,

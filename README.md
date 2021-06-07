@@ -12,8 +12,21 @@
 yarn add rts-app-tv
 ```
 
-You could use a specific version in your `package.json` : `"rts-app-tv": "^0.0.3"`
+## Components ##
+List : 
+- Swimlane ([native](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/SwimLane/SwimLane.js) / [web](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/SwimLane/SwimLane.web.js))
+- [Flat list](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/FlatScrollView/FlatScrollView.js)
+- [Grid](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/GridScrollView/GridScrollView.js)
 
+Items :
+- [Card](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/CardItem.js)
+- [Media](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/MediaItem.js)
+- [Poster](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/PosterItem.js)
+- [Round](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/RoundItem.js)
+- [Topic](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/TopicItem.js)
+
+Navigation :
+- [Drawer](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/CustomDrawer/CustomDrawer.js)
 ## Usage ##
 
 First, import and use our Provider in your `App.js` :

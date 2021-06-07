@@ -11,7 +11,6 @@ import TVAPPContext from '../TVAPPContext/TVAPPContext'
  * @param theme
  * @param navigation
  * @param state
- * @param focusManager
  * @param miniWidth
  * @param maxWidth
  * @param options(icons, customNavigation)
@@ -23,20 +22,12 @@ function CustomDrawer ({
     theme,
     navigation,
     state,
-    focusManager = {
-        getFocus: () => {},
-        setFocus: () => {},
-        getSwimLanes: () => {},
-        getNextFocusLeft: () => {},
-        setSwimLanes: () => {},
-        modifySwimLane: () => {}
-    },
     miniWidth,
     maxWidth,
     options = {},
     timeOutValue
 }) {
-    const { GlobalState } = useContext(TVAPPContext)
+    const { GlobalState, FocusManager } = useContext(TVAPPContext)
     const { dispatchGlobalState, GlobalStates } = GlobalState
     const { routes } = state
     const [scaleValue] = useState(new Animated.Value(miniWidth))
@@ -82,7 +73,7 @@ function CustomDrawer ({
     }
 
     function onLayout (name, index) {
-        focusManager.setDrawer({ name, ref: buttonsRef.current[index] })
+        FocusManager.setDrawer({ name, ref: buttonsRef.current[index] })
     }
 
     function onPress (route) {
@@ -137,7 +128,7 @@ function CustomDrawer ({
     }
 
     const getNextFocusRight = useCallback(() => {
-        const nextFocusRight = focusManager.getFocus()
+        const nextFocusRight = FocusManager.getFocus()
         return findNodeHandle(nextFocusRight.ref)
     })
 
