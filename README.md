@@ -3,7 +3,7 @@
 
 ### RTS TV App Framework ###
 * Simply and easily build an application for Smart TV, with a unique project for AndroidTV, TvOS and Web platforms (Tizen, webOs)
-* current version : 0.0.16
+* current version : 0.0.17
 * [Demo](https://bitbucket.org/rtsmb/rts-app-tv-demo)
 * [Project template](https://bitbucket.org/rtsmb/rts-app-tv_template/src/master/)
 
@@ -76,8 +76,7 @@ For that, you need to give your custom theme in parameters of the `TVAppProvider
 ```
 <TVAPPProvider config={{ focus: { type: 'border' }, theme: YourAppTheme }}>
 ```
-
-You can used and modified the file `ThemeSRG.js` as an example of your `YourAppTheme` and create it directly inside your project.
+Take inspiration from the theme [ThemeSRG.js](https://bitbucket.org/rtsmb/rts-app-tv_template/src/develop/src/lib/theme/)  to create your own theme directly inside your project.  Rewrite all or part of the styles of the different components.
 
 #### Work Around ####
 
@@ -88,7 +87,7 @@ Add the three dependencies :
 ```
 "react-native-linear-gradient": "^2.5.6",
 "react-native-web-linear-gradient": "^1.1.1",
-"rts-app-tv": "^0.0.16"`
+"rts-app-tv": "^0.0.17"`
 ```
 
 You also maybe should add inside `config-overrides.js` / `alias` this line : 

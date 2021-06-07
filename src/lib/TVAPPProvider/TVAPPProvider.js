@@ -5,6 +5,7 @@ import FocusManager from '../managers/FocusManager'
 import { BackHandler, NativeModules, Platform, TVEventHandler } from 'react-native'
 import { capitalizeFirstLetter } from '../utils/tools'
 import { InitialKeyEventState, KeyEventsReducer, KeyEventStates } from '../reducers/KeyEventsReducer'
+import { ThemeSRG } from '../theme/ThemeSRG'
 
 function TVAPPProvider ({ children, ...props }) {
     const { config, navigation } = props
@@ -13,7 +14,7 @@ function TVAPPProvider ({ children, ...props }) {
     const KeyEventState = { state, dispatch, KeyEventStates }
     const [globalState, dispatchGlobalState] = useReducer(GlobalReducer, InitialGlobalState)
     const GlobalState = { globalState, dispatchGlobalState, GlobalStates }
-    const [theme, setTVAPPContextTheme] = useState({})
+    const [theme, setTVAPPContextTheme] = useState({ ThemeSRG })
     const Theme = { theme, setTVAPPContextTheme }
 
     function backAction (e) {
@@ -36,9 +37,9 @@ function TVAPPProvider ({ children, ...props }) {
     function tvEventHandling (cmp, e) {
         if (
             e.eventType === 'left' ||
-        e.eventType === 'right' ||
-        e.eventType === 'up' ||
-        e.eventType === 'down'
+            e.eventType === 'right' ||
+            e.eventType === 'up' ||
+            e.eventType === 'down'
         ) {
             dispatch({ type: `Arrow${capitalizeFirstLetter(e.eventType)}`, payload: { timeStamp: Date.now() } })
         }
