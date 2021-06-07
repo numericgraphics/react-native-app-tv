@@ -3,7 +3,7 @@
 
 ### RTS TV App Framework ###
 * Simply and easily build an application for Smart TV, with a unique project for AndroidTV, TvOS and Web platforms (Tizen, webOs)
-* current version : 0.0.18
+* current version : 0.0.19
 * [Demo](https://bitbucket.org/rtsmb/rts-app-tv-demo)
 * [Project template](https://bitbucket.org/rtsmb/rts-app-tv_template/src/master/)
 
@@ -14,11 +14,13 @@ yarn add rts-app-tv
 
 ## Components ##
 List : 
+
 - Swimlane ([native](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/SwimLane/SwimLane.js) / [web](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/SwimLane/SwimLane.web.js))
 - [Flat list](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/FlatScrollView/FlatScrollView.js)
 - [Grid](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/GridScrollView/GridScrollView.js)
 
 Items :
+
 - [Card](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/CardItem.js)
 - [Media](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/MediaItem.js)
 - [Poster](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/PosterItem.js)
@@ -26,6 +28,7 @@ Items :
 - [Topic](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/TopicItem.js)
 
 Navigation :
+
 - [Drawer](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/CustomDrawer/CustomDrawer.js)
 ## Usage ##
 
@@ -154,7 +157,7 @@ Add the three dependencies :
 ```
 "react-native-linear-gradient": "^2.5.6",
 "react-native-web-linear-gradient": "^1.1.1",
-"rts-app-tv": "^0.0.18"
+"rts-app-tv": "^0.0.19"
 ```
 
 You also maybe should add inside `config-overrides.js` / `alias` this line : 
