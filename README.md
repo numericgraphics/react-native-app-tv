@@ -76,7 +76,8 @@ For that, you need to give your custom theme in parameters of the `TVAppProvider
 ```
 <TVAPPProvider config={{ focus: { type: 'border' }, theme: YourAppTheme }}>
 ```
-Take inspiration from the theme [ThemeSRG.js](https://bitbucket.org/rtsmb/rts-app-tv_template/src/develop/src/lib/theme/)  to create your own theme directly inside your project.  Rewrite all or part of the styles of the different components.
+
+Take inspiration from the theme [ThemeSRG.js](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/theme/ThemeSRG.js)  to create your own theme directly inside your project.  Rewrite all or part of the styles of the different components.
 
 #### Work Around ####
 
