@@ -49,7 +49,6 @@ const Home = () => {
 ```
 
 ## Configure ##
-
 You have the possibility to configure the framework through the provider by passing a configuration object 
 ```
 <TVAPPProvider config={{ focus: { type: 'border' } }}>
@@ -58,13 +57,13 @@ You have the possibility to configure the framework through the provider by pass
 
 | Name        | Type      
 | ----------- | -----------      
-| focus       | Object : { type: 'border'/'scale' }        
-| root       | String     
-| navigation  | React Ref  (see navigation object below) 
 | theme       | Object (see theme object below)
+| focus       | Object { type: 'border'/'scale' }        
+| navigation  | React Ref  (see navigation object below) 
+| root       | String     
+| focusManager       | Object (see theme object below)     
 
 #### Theme ####
-
 By default, the framework use a specific theme `ThemeSRG.js` with specific attributes :
 - Colors
 - Typography (font, size, weight)
@@ -73,12 +72,18 @@ By default, the framework use a specific theme `ThemeSRG.js` with specific attri
 All the CSS of each component of the framework can be configured and modified using a custom theme.
 
 For that, you need to give your custom theme in parameters of the `TVAppProvider` :
-
 ```
 <TVAPPProvider config={{ focus: { type: 'border' }, theme: YourAppTheme }}>
 ```
 
-Take inspiration from the theme [ThemeSRG.js](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/theme/ThemeSRG.js)  to create your own theme directly inside your project.  Rewrite all or part of the styles of the different components.
+Take inspiration from the theme [ThemeSRG.js](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/theme/ThemeSRG.js) to create your own theme directly inside your project.  Rewrite all or part of the styles of the different components.
+
+#### Focus ####
+The framework provide 2 styles of focus element.
+- border : a white border all around the focused element.
+- scale : the focused element is scale with a quick animation.
+
+Can be usefull performances's consideration
 
 #### Navigation ####
 The framework is base on the react native navigation for native platforms, and W3C official spacial navigation polyfill for the web platform.
@@ -110,8 +115,18 @@ By default the root navigation is set to 'Home'. Override the value like this :
 </TVAPPProvider>
 ```
 
-#### Global State ####
-The framework have a global state accessible to detect drawer state, theme and more to come :
+#### FocusManager ####
+You can provide your own focusManager to set the focus as you want.
+Use our [FocusManager.js](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/managers/FocusManager.js).
+
+```
+<TVAPPProvider config={{ focus: { type: 'border' }, focusManager: MyFocusmanager }}>
+    <Home/>
+</TVAPPProvider>
+```
+It can be usefull to set focus behavior between component.
+### Global State ###
+Acces to the framework global state to detect drawer state, theme and more to come :
 ```
 const { GlobalState } = useContext(TVAPPContext)
 
@@ -119,7 +134,6 @@ useEffect(() => {}, [GlobalState.globalState])
 ```
 
 ### Work Around - Tips ###
-
 If you want a clean project to compile on each platform (tvOS, AndroidTV and web), you can copy the project [Project template](https://bitbucket.org/rtsmb/rts-app-tv_template/src/master/).
 
 Add the three dependencies :
