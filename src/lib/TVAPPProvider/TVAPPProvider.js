@@ -8,26 +8,28 @@ import { InitialKeyEventState, KeyEventsReducer, KeyEventStates } from '../reduc
 import { ThemeSRG } from '../theme/ThemeSRG'
 
 function TVAPPProvider ({ children, ...props }) {
-    const { config, navigation } = props
+    const { config } = props
     const { SRGExitApp } = NativeModules
     const [state, dispatch] = useReducer(KeyEventsReducer, InitialKeyEventState)
     const KeyEventState = { state, dispatch, KeyEventStates }
     const [globalState, dispatchGlobalState] = useReducer(GlobalReducer, InitialGlobalState)
     const GlobalState = { globalState, dispatchGlobalState, GlobalStates }
     const [theme, setTVAPPContextTheme] = useState({ ThemeSRG })
+    const [root, setRoot] = useState('Home')
+    const [navigation, setNavigation] = useState(undefined)
     const Theme = { theme, setTVAPPContextTheme }
 
     function backAction (e) {
         // Exit for tvOS
-        if (navigation?.navigationRef.current.getCurrentRoute().name === 'Home' && Platform.OS === 'ios') {
+        if (navigation?.current.getCurrentRoute().name === root && Platform.OS === 'ios') {
             SRGExitApp.exitApp()
         }
 
         // Escape actions
         try {
             return !!(
-                navigation?.navigationRef.current &&
-                navigation?.navigationRef.current.getCurrentRoute().name === 'Home'
+                navigation?.current &&
+                navigation?.current.getCurrentRoute().name === root
             )
         } catch (e) {
             console.log('TVAPPProvider backAction ERROR', e)
@@ -47,9 +49,9 @@ function TVAPPProvider ({ children, ...props }) {
 
     function keyDownAction (e) {
         try {
-            if (e.code === 'Escape' && navigation?.navigationRef.current.getCurrentRoute().name !== 'Home') {
+            if (e.code === 'Escape' && navigation?.current.getCurrentRoute().name !== root) {
                 console.log('TVAPPProvider - keyDownAction history back')
-                navigation?.navigationRef.current.goBack()
+                navigation?.current.goBack()
             }
             if (
                 e.code === 'ArrowRight' ||
@@ -89,6 +91,14 @@ function TVAPPProvider ({ children, ...props }) {
                     FocusManager.setFocus(value)
                 } else if (key === 'theme') {
                     setTVAPPContextTheme(value)
+                } else if (key === 'root') {
+                    setRoot(value)
+                } else if (key === 'navigation') {
+                    if (value.current) {
+                        setNavigation(value)
+                    } else {
+                        console.log('TVAPPProvider - ERROR - navigation reference is not valid')
+                    }
                 }
             }
         }

@@ -3,18 +3,18 @@
 
 ### RTS TV App Framework ###
 * Simply and easily build an application for Smart TV, with a unique project for AndroidTV, TvOS and Web platforms (Tizen, webOs)
-* current version : 0.0.17
+* current version : 0.0.18
 * [Demo](https://bitbucket.org/rtsmb/rts-app-tv-demo)
 * [Project template](https://bitbucket.org/rtsmb/rts-app-tv_template/src/master/)
 
-### Install ###
+## Install ##
 ```
 yarn add rts-app-tv
 ```
 
 You could use a specific version in your `package.json` : `"rts-app-tv": "^0.0.3"`
 
-### Usage ###
+## Usage ##
 
 First, import and use our Provider in your `App.js` :
 ```
@@ -48,7 +48,7 @@ const Home = () => {
 }
 ```
 
-### Configure ###
+## Configure ##
 
 You have the possibility to configure the framework through the provider by passing a configuration object 
 ```
@@ -59,6 +59,7 @@ You have the possibility to configure the framework through the provider by pass
 | Name        | Type      
 | ----------- | -----------      
 | focus       | Object : { type: 'border'/'scale' }        
+| root       | String     
 | navigation  | React Ref  (see navigation object below) 
 | theme       | Object (see theme object below)
 
@@ -79,7 +80,45 @@ For that, you need to give your custom theme in parameters of the `TVAppProvider
 
 Take inspiration from the theme [ThemeSRG.js](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/theme/ThemeSRG.js)  to create your own theme directly inside your project.  Rewrite all or part of the styles of the different components.
 
-#### Work Around ####
+#### Navigation ####
+The framework is base on the react native navigation for native platforms, and W3C official spacial navigation polyfill for the web platform.
+Access to key events state with a useEffect, for all platforms out of the box.
+```
+const { KeyEventState } = useContext(TVAPPContext)
+
+useEffect(() => {
+            if (KeyEventState.state.type === KeyEventState.KeyEventStates.KEY_DOWN) { ... }
+            else if (KeyEventState.state.type === KeyEventState.KeyEventStates.KEY_UP) { ... }
+    }, [KeyEventState.state])
+```
+
+The framework offer the possibility to work with [react navigation](https://reactnavigation.org/). 
+Simply, pass the navigation reference to the config object :
+```
+const navigationRef = React.createRef()
+    return (
+        <NavigationContainer ref={navigationRef}>
+            <TVAPPProvider config={{ focus: { type: 'border' }, navigation: navigationRef }}>
+        <NavigationContainer/>
+    )
+```
+Then you can use the customDrawer, back navigation with last item focused, etc.
+By default the root navigation is set to 'Home'. Override the value like this : 
+```
+<TVAPPProvider config={{ focus: { type: 'border' }, root: 'Home' }}>
+    <Home/>
+</TVAPPProvider>
+```
+
+#### Global State ####
+The framework have a global state accessible to detect drawer state, theme and more to come :
+```
+const { GlobalState } = useContext(TVAPPContext)
+
+useEffect(() => {}, [GlobalState.globalState])
+```
+
+### Work Around - Tips ###
 
 If you want a clean project to compile on each platform (tvOS, AndroidTV and web), you can copy the project [Project template](https://bitbucket.org/rtsmb/rts-app-tv_template/src/master/).
 
@@ -88,7 +127,7 @@ Add the three dependencies :
 ```
 "react-native-linear-gradient": "^2.5.6",
 "react-native-web-linear-gradient": "^1.1.1",
-"rts-app-tv": "^0.0.17"`
+"rts-app-tv": "^0.0.18"
 ```
 
 You also maybe should add inside `config-overrides.js` / `alias` this line : 
