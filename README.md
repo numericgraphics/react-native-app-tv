@@ -7,32 +7,15 @@
 * [Demo](https://bitbucket.org/rtsmb/rts-app-tv-demo)
 * [Project template](https://bitbucket.org/rtsmb/rts-app-tv_template/src/master/)
 
+## Dependencies ##
+- React native version 63.4-0
+- Xcode >= 12.4
+- Android Studio - SDK version 6/78/9/10
 
 ## Install ##
 ```
 yarn add rts-app-tv
 ```
-
-
-## Compilation ##
-
-You need to use a React Native set up to use this framework.
-
-Also, you need to have Android Studio and Xcode to compile for Android TV and tvOS.
-
-For using this framework on tvOS you need to add in your app demo inside iOS folder two things :
-
-1. Add `SRGSSRTypeDisplayVFApp-Medium.ttf` and `SRGSSRTypeTextVFApp-Medium.ttf` as resources
-2. Add the font reference on yours info.plist (tvOS and iOS)
-
-```	
-<key>UIAppFonts</key>
-<array>
-    <string>SRGSSRTypeDisplayVFApp-Medium.ttf</string>
-    <string>SRGSSRTypeTextVFApp-Medium.ttf</string>
-</array>
-```
-
 
 ## Components ##
 List : 
@@ -168,7 +151,7 @@ Use our [FocusManager.js](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src
 It can be usefull to set focus behavior between component.
 
 
-### Global State ###
+#### Global State ####
 Access to the framework global state to detect drawer state, theme and more to come :
 ```
 const { GlobalState } = useContext(TVAPPContext)
@@ -176,8 +159,25 @@ const { GlobalState } = useContext(TVAPPContext)
 useEffect(() => {}, [GlobalState.globalState])
 ```
 
+## Compilation ##
 
-### Work Around - Tips ###
+You need to use a React Native set up to use this framework.
+Also, you need to have Android Studio and Xcode to compile for Android TV and tvOS.
+
+For using this framework on tvOS you need to add in your app demo inside iOS folder two things :
+
+1. Add `SRGSSRTypeDisplayVFApp-Medium.ttf` and `SRGSSRTypeTextVFApp-Medium.ttf` as resources
+2. Add the font reference on yours info.plist (tvOS and iOS)
+
+```	
+<key>UIAppFonts</key>
+<array>
+    <string>SRGSSRTypeDisplayVFApp-Medium.ttf</string>
+    <string>SRGSSRTypeTextVFApp-Medium.ttf</string>
+</array>
+```
+
+## Work Around - Tips ##
 If you want a clean project to compile on each platform (tvOS, AndroidTV and web), you can copy the project [Project template](https://bitbucket.org/rtsmb/rts-app-tv_template/src/master/).
 
 Add the three dependencies :
