@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import { SwimLane, TVAPPContext, useRenderItem } from '../lib'
 import { StyleSheet, Text, View } from 'react-native'
 import mockData from '../assets/mockData/mockData'
+import FlatScrollView from '../lib/FlatScrollView'
 
 const Home = (props) => {
     const { FocusManager, GlobalState } = useContext(TVAPPContext)
@@ -10,7 +11,7 @@ const Home = (props) => {
     const [data] = useState(mockData[0])
 
     useEffect(() => {
-        console.log('Home - useEffect init')
+        console.log('Home - useEffect init', FlatScrollView)
 
     }, [])
 

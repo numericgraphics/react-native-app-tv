@@ -81,7 +81,7 @@ const GridScrollView = ({
                 />
             })}
         </View>
-    })
+    }, [])
 
     return (
         <View style={style.row}>

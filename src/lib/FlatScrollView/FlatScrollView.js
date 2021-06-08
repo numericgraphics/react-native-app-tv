@@ -1,4 +1,4 @@
-import React, { createRef, useEffect, useRef, useState, useCallback, useContext } from 'react'
+import React, { createRef, useEffect, useRef, useState, useCallback, useContext, memo } from 'react'
 import { Text, View, findNodeHandle } from 'react-native'
 import AnimatedFocusableHighlight from '../focusable/AnimatedFocusableHighlight'
 import { FlatScrollViewDefaultStyle } from '../styles/FlatScrollViewDefaultStyle.style'
@@ -53,13 +53,13 @@ const FlatScrollView = ({
                 rowRefs.current[index] = ref
             }
         )
-    })
+    }, [])
 
     const onPress = useCallback((item) => {
         if (onItemPress) {
             onItemPress(item)
         }
-    })
+    }, [])
 
     const onFocus = (index) => {
         if (index % 4 === 3) {
@@ -80,7 +80,7 @@ const FlatScrollView = ({
         }
     }
 
-    const buildSwimLaneScale = useCallback(() => {
+    const buildSwimLaneScale = () => {
         return mediaList.map((item, index) => {
             const { imageUrl, isEventStarted, prettyHour, prettyDuration, bait, title, description } = item
             const key = `${id}_${index}`
@@ -88,9 +88,9 @@ const FlatScrollView = ({
                 {getClonedRenderItem(<FlatScrollViewItem/>, { key: index, imageUrl, isEventStarted, prettyHour, prettyDuration, bait, title, description, theme })}
             </AnimatedFocusableHighlight>
         })
-    })
+    }
 
-    const buildSwimLaneBorder = useCallback(() => {
+    const buildSwimLaneBorder = () => {
         return mediaList.map((item, index) => {
             const { imageUrl, isEventStarted, prettyHour, prettyDuration, bait, title, description } = item
             const key = `${id}_${index}`
@@ -98,7 +98,7 @@ const FlatScrollView = ({
                 {getClonedRenderItem(<FlatScrollViewItem/>, { key: index, imageUrl, isEventStarted, prettyHour, prettyDuration, bait, title, description, theme })}
             </AnimatedBorderFocusableHighlight>
         })
-    })
+    }
 
     return (
         <View style={style.row} ref={flatListRef}>
@@ -113,4 +113,4 @@ const FlatScrollView = ({
         </View>
     )
 }
-export default FlatScrollView
+export default memo(FlatScrollView)

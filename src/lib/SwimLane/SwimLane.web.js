@@ -109,7 +109,7 @@ const SwimLane = forwardRef(({
                 rowsRef.current[index] = ref
             }
         )
-    })
+    }, [])
 
     function onPress (item) {
         const tempItem = { ...item, type }
@@ -159,7 +159,7 @@ const SwimLane = forwardRef(({
         }
     }
 
-    const buildSwimLaneScale = useCallback(() => {
+    const buildSwimLaneScale = () => {
         return mediaList.map((item, index) => {
             const { imageUrl, isEventStarted, prettyHour, prettyDuration, bait, title, description } = item
             const key = `${id}_${index}`
@@ -167,9 +167,9 @@ const SwimLane = forwardRef(({
                 {getClonedRenderItem(renderItem, { key: index, imageUrl, isEventStarted, prettyHour, prettyDuration, bait, title, description, theme })}
             </AnimatedFocusableHighlight>
         })
-    })
+    }
 
-    const buildSwimLaneBorder = useCallback(() => {
+    const buildSwimLaneBorder = () => {
         return mediaList.map((item, index) => {
             const { imageUrl, isEventStarted, prettyHour, prettyDuration, bait, title, description } = item
             const key = `${id}_${index}`
@@ -177,7 +177,7 @@ const SwimLane = forwardRef(({
                 {getClonedRenderItem(renderItem, { key: index, imageUrl, isEventStarted, prettyHour, prettyDuration, bait, title, description, theme })}
             </AnimatedBorderFocusableHighlight>
         })
-    })
+    }
 
     return (
         <View

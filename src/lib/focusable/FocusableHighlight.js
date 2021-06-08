@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from 'react'
+import React, { useState, forwardRef, memo } from 'react'
 import { TouchableHighlight, View } from 'react-native'
 
 // eslint-disable-next-line react/display-name
@@ -40,4 +40,4 @@ const FocusableHighlight = forwardRef((props, ref) => {
     )
 })
 
-export default FocusableHighlight
+export default memo(FocusableHighlight)

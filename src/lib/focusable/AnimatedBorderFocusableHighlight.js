@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from 'react'
+import React, { forwardRef, useRef, memo } from 'react'
 import { Animated, TouchableHighlight, View } from 'react-native'
 
 // eslint-disable-next-line react/display-name
@@ -55,4 +55,4 @@ const AnimatedBorderFocusableHighlight = forwardRef((props, ref) => {
     )
 })
 
-export default AnimatedBorderFocusableHighlight
+export default memo(AnimatedBorderFocusableHighlight)

@@ -87,14 +87,14 @@ const SwimLane = forwardRef(({
                 rowsRef.current[index] = ref
             }
         )
-    })
+    }, [])
 
     const onBlur = useCallback((item) => {
         setSwimLaneElementFocused(false)
         if (onItemBlur) {
             onItemBlur(item)
         }
-    })
+    }, [])
 
     const onFocus = (item, index, key) => {
         FocusManager.setFocus({ ref: rowsRef.current[index], parent, key })
@@ -118,7 +118,7 @@ const SwimLane = forwardRef(({
         if (onItemPress) {
             onItemPress(tempItem)
         }
-    })
+    }, [])
 
     function onLayoutCallback (name, list) {
         FocusManager.setSwimLanes({ name, list, viewed: false })
@@ -135,7 +135,7 @@ const SwimLane = forwardRef(({
         if (index === (mediaList.length - 1)) {
             return findNodeHandle(rowsRef.current[index])
         }
-    })
+    }, [])
 
     const getNextFocusDown = useCallback(() => {
         if (
@@ -145,14 +145,14 @@ const SwimLane = forwardRef(({
             const nextFocusDown = FocusManager.getSwimLanes(`${parentName}_${parentIndex + 1}`).list[0]
             return findNodeHandle(nextFocusDown)
         }
-    })
+    }, [])
 
     const getNextFocusLeft = useCallback((index) => {
         if (index === 0 && parentName) {
             const nextFocusLeft = FocusManager.getNextFocusLeft(parentName)
             return findNodeHandle(nextFocusLeft)
         }
-    })
+    }, [])
 
     const getFocusableProps = (item, index, key) => {
         return {
@@ -170,7 +170,7 @@ const SwimLane = forwardRef(({
         }
     }
 
-    const buildSwimLaneScale = useCallback(() => {
+    const buildSwimLaneScale = () => {
         return mediaList.map((item, index) => {
             const { imageUrl, isEventStarted, prettyHour, prettyDuration, bait, title, description } = item
             const key = `${id}_${index}`
@@ -178,9 +178,9 @@ const SwimLane = forwardRef(({
                 {getClonedRenderItem(renderItem, { key: index, imageUrl, isEventStarted, prettyHour, prettyDuration, bait, title, description, theme })}
             </AnimatedFocusableHighlight>
         })
-    })
+    }
 
-    const buildSwimLaneBorder = useCallback(() => {
+    const buildSwimLaneBorder = () => {
         return mediaList.map((item, index) => {
             const { imageUrl, isEventStarted, prettyHour, prettyDuration, bait, title, description } = item
             const key = `${id}_${index}`
@@ -188,7 +188,7 @@ const SwimLane = forwardRef(({
                 {getClonedRenderItem(renderItem, { key: index, imageUrl, isEventStarted, prettyHour, prettyDuration, bait, title, description, theme })}
             </AnimatedBorderFocusableHighlight>
         })
-    })
+    }
 
     return (
         <View ref={ref}>

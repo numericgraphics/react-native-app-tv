@@ -109,7 +109,7 @@ export const ThemeSRG = {
             marginBottom: Style.ratio(10),
             marginLeft: Style.ratio(50),
             marginRight: Style.ratio(5),
-            backgroundColor: innerColors.BACKGROUND
+            backgroundColor: innerColors.TRANSPARENT
         },
         item: {
             paddingTop: Style.ratio(14),
@@ -122,7 +122,7 @@ export const ThemeSRG = {
             marginRight: Style.ratio(18),
             marginLeft: Style.ratio(18)
         },
-        buttonFocusedColor: innerColors.BACKGROUND
+        buttonFocusedColor: innerColors.TRANSPARENT
     },
     Drawer: {
         drawerStyle: {

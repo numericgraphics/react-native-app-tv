@@ -103,7 +103,7 @@ function CustomDrawer ({
                 </FocusableHighlight>
             )
         })
-    })
+    }, [])
 
     function getRef (index) {
         return (
@@ -130,7 +130,7 @@ function CustomDrawer ({
     const getNextFocusRight = useCallback(() => {
         const nextFocusRight = FocusManager.getFocus()
         return findNodeHandle(nextFocusRight.ref)
-    })
+    }, [])
 
     useEffect(() => {
         if (Object.entries(options).length > 0) {
