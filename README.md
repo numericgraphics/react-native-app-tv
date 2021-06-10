@@ -185,11 +185,11 @@ For using this framework on tvOS you need to add in your app demo inside iOS fol
 
 Required : Tizen Studio (with Tizen SDK tools, TV extension 6.0)
 
-1. Build the web project using npm run web:build command in the terminal. This create a build folder at the roots of the project
-2. Start Tizen Studio and create a new blank projet (pick Template type, TV as application, Web Application as app type and empty template)
-3. At the last step of creating a blank project. Click on 'More Properties' and disable "Use default location", now browse to your build folder in your react native project and set it as your Tizen Studio project.
-4. Go to your build folder and copy the generated Tizen web app files (icon.png, .settings, .project, config.xml, .tproject) into ./public folder of your react native project
-5. Use Tizen studio to build the project by importing it in your workspace, and run debug or build action
+- Build the web project using npm run web:build command in the terminal. This create a build folder at the roots of the project
+- Start Tizen Studio and create a new blank projet (pick Template type, TV as application, Web Application as app type and empty template)
+- At the last step of creating a blank project. Click on 'More Properties' and disable "Use default location", now browse to your build folder in your react native project and set it as your Tizen Studio project.
+- Go to your build folder and copy the generated Tizen web app files (icon.png, .settings, .project, config.xml, .tproject) into ./public folder of your react native project
+- Use Tizen studio to build the project by importing it in your workspace, and run debug or build action
 
 In the config.xml add to allow api calls : 
 ```
