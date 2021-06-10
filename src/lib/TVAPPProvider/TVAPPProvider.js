@@ -17,6 +17,7 @@ function TVAPPProvider ({ children, ...props }) {
     const [theme, setTVAPPContextTheme] = useState({ ThemeSRG })
     const [root, setRoot] = useState('Home')
     const [navigation, setNavigation] = useState(undefined)
+    const [focusManager, setFocusManager] = useState(new FocusManager())
     const Theme = { theme, setTVAPPContextTheme }
 
     function backAction (e) {
@@ -87,8 +88,14 @@ function TVAPPProvider ({ children, ...props }) {
         console.log('TVAPPProvider - useEffect init')
         if (Object.entries(config).length > 0) {
             for (const [key, value] of Object.entries(config)) {
-                if (key === 'focus') {
-                    FocusManager.setFocus(value)
+                if (key === 'focusManager') {
+                    if (value instanceof FocusManager) {
+                        setFocusManager(value)
+                    } else {
+                        console.log('TVAPPProvider - ERROR - focusManager is not valid')
+                    }
+                } else if (key === 'focus') {
+                    focusManager.setFocus(value)
                 } else if (key === 'theme') {
                     setTVAPPContextTheme(value)
                 } else if (key === 'root') {
@@ -121,7 +128,7 @@ function TVAPPProvider ({ children, ...props }) {
         }
     }, [])
 
-    return <TVAPPContext.Provider value={{ KeyEventState, GlobalState, FocusManager, Theme }}>{children}</TVAPPContext.Provider>
+    return <TVAPPContext.Provider value={{ KeyEventState, GlobalState, focusManager, Theme }}>{children}</TVAPPContext.Provider>
 }
 
 export default TVAPPProvider

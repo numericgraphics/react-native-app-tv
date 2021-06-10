@@ -6,21 +6,19 @@ import MediaItem from '../items/MediaItem'
 import { GridScrollViewDefaultStyle } from '../styles/GridScrollViewDefaultStyle.style'
 import TVAPPContext from '../TVAPPContext'
 
-/** GridScrollView - NATIVE - WEB
+/**
  *
- * @param rowData
- * @param route
- * @param type
- * @param parent
- * @param focusElementRef
- * @param onItemPress
- * @param onItemFocus
- * @param onItemBlur
- *******************/
+ * @param {Array|Object} rowData - data to render
+ * @param {String} type - media type
+ * @param {Object} parent - { parentIndex: Number, parentName: String }
+ * @param {Object} focusElementRef - media to focus on start
+ * @param {Function} onItemPress - params : String item
+ * @param {Function} onItemFocus  - params : String item, Number index, String key
+ * @param {Function} onItemBlur - params : String item
+ **/
 
 const GridScrollView = ({
     rowData,
-    route,
     type,
     parent,
     focusElementRef,
@@ -77,7 +75,6 @@ const GridScrollView = ({
                             theme={theme}
                         />
                     }
-                    route={route}
                 />
             })}
         </View>

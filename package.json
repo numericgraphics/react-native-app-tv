@@ -18,7 +18,8 @@
     "test": "jest",
     "lint": "eslint .",
     "clearAll": "watchman watch-del-all && rm -rf node_modules && rm yarn.lock && yarn cache clean && yarn install && rm -rf /tmp/metro-* && rm -fr $TMPDIR/metro-cache",
-    "dist": "npx babel src/lib --out-dir dist"
+    "dist": "npx babel src/lib --out-dir dist",
+    "docs": "jsdoc -c jsdoc.json -t docs_src/template/default/"
   },
   "dependencies": {
     "react": "16.13.1",

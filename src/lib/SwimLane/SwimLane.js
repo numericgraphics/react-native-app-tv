@@ -7,23 +7,22 @@ import TVAPPContext from '../TVAPPContext'
 import { useMediaList } from '../utils/useMediaList'
 import { getClonedRenderItem } from '../utils/tools'
 
-/** SWIMLANE COMPONENT - NATIVE
+/**
+ * @param {String} id - unique id
+ * @param {Array|Object} data - data to render
+ * @param {Class} renderItem - render component
+ * @param {String=} title - swimlane title
+ * @param {Object} parent - { parentIndex: Number, parentName: String }
+ * @param {String} type - media type
+ * @param {Object} reducer - dispatch action
+ * @param {Class} componentStyle - swimlane style
+ * @param {Object} focusElementRef - media to focus on start
+ * @param {Function} onLayout - params : String name, Array list
+ * @param {Function} onItemPress - params : String item
+ * @param {Function} onItemFocus  - params : String item, Number index, String key
+ * @param {Function} onItemBlur - params : String item
  *
- * @param id
- * @param data
- * @param renderItem
- * @param title
- * @param parent
- * @param type
- * @param reducer
- * @param componentStyle
- * @param focusElementRef
- * @param onLayout(name, list)
- * @param onItemPress(item)
- * @param onItemFocus(item, index, key)
- * @param onItemBlur(item)
- *
- *******************/
+ */
 
 const SwimLane = forwardRef(({
     id,

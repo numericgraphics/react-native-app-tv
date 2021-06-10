@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>RTS APP TV</h1>
+<h3>RTS TV App Framework</h3>
+<ul>
+<li>Simply and easily build an application for Smart TV, with a unique project for AndroidTV, TvOS and Web platforms (Tizen, webOs)</li>
+<li>current version : 0.0.21</li>
+<li><a href="https://bitbucket.org/rtsmb/rts-app-tv-demo">Demo</a></li>
+<li><a href="https://bitbucket.org/rtsmb/rts-app-tv_template/src/master/">Project template</a></li>
+<li><a href="https://bitbucket.org/rtsmb/rts-app-tv/docs/global.html">Documentation</a></li>
+</ul>
+<h2>Dependencies</h2>
+<ul>
+<li>React native version 63.4-0</li>
+<li>Xcode &gt;= 12.4</li>
+<li>Android Studio - SDK version 6/78/9/10</li>
+</ul>
+<h2>Install</h2>
+<pre class="prettyprint source"><code>yarn add rts-app-tv
+</code></pre>
+<h2>Components</h2>
+<p>full <a href="https://bitbucket.org/rtsmb/rts-app-tv/docs/global.html">documentation</a> for all the components</p>
+<p>List :</p>
+<ul>
+<li>Swimlane (<a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/SwimLane/SwimLane.js">native</a> / <a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/SwimLane/SwimLane.web.js">web</a>)</li>
+<li><a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/FlatScrollView/FlatScrollView.js">Flat list</a></li>
+<li><a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/GridScrollView/GridScrollView.js">Grid</a></li>
+</ul>
+<p>Items :</p>
+<ul>
+<li><a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/CardItem.js">Card</a></li>
+<li><a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/MediaItem.js">Media</a></li>
+<li><a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/PosterItem.js">Poster</a></li>
+<li><a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/RoundItem.js">Round</a></li>
+<li><a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/TopicItem.js">Topic</a></li>
+</ul>
+<p>Navigation :</p>
+<ul>
+<li><a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/CustomDrawer/CustomDrawer.js">Drawer</a></li>
+</ul>
+<h2>Usage</h2>
+<p>First, import and use our Provider in your <code>App.js</code> :</p>
+<pre class="prettyprint source"><code>import { TVAPPProvider } from 'rts-app-tv'
+
+const App = () => {
+   return (
+       &lt;TVAPPProvider>
+           &lt;Home/>
+       &lt;/TVAPPProvider>
+   )
+}
+</code></pre>
+<p>You need to create your own `Home.js``and secondly, import and use our components inside :</p>
+<pre class="prettyprint source"><code>import { SwimLane } from 'rts-app-tv'
+
+const Home = () => {
+   return (
+        &lt;SwimLane
+           id={}
+           ref={}
+           type={}
+           data={}
+           parent={}
+           renderItem={}
+           onItemPress={(item) => {}}
+        />
+   )
+}
+</code></pre>
+<h2>Configure</h2>
+<p>You have the possibility to configure the framework through the provider by passing a configuration object</p>
+<pre class="prettyprint source"><code>&lt;TVAPPProvider config={{ focus: { type: 'border' } }}>
+</code></pre>
+<h4>Provider Configuration props</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>theme</td>
+<td>Object (see theme object below)</td>
+</tr>
+<tr>
+<td>focus</td>
+<td>Object { type: 'border'/'scale' }</td>
+</tr>
+<tr>
+<td>navigation</td>
+<td>React Ref  (see navigation object below)</td>
+</tr>
+<tr>
+<td>root</td>
+<td>String</td>
+</tr>
+<tr>
+<td>focusManager</td>
+<td>Object (see theme object below)</td>
+</tr>
+</tbody>
+</table>
+<h4>Theme</h4>
+<p>By default, the framework use a specific theme <code>ThemeSRG.js</code> with specific attributes :</p>
+<ul>
+<li>Colors</li>
+<li>Typography (font, size, weight)</li>
+<li>Configuration of components (Swimlane, Swimlane Items, Grid, Flat Scroll view, Drawer, etc.)</li>
+</ul>
+<p>All the CSS of each component of the framework can be configured and modified using a custom theme.</p>
+<p>For that, you need to give your custom theme in parameters of the <code>TVAppProvider</code> :</p>
+<pre class="prettyprint source"><code>&lt;TVAPPProvider config={{ focus: { type: 'border' }, theme: YourAppTheme }}>
+</code></pre>
+<p>Take inspiration from the theme <a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/theme/ThemeSRG.js">ThemeSRG</a> to create your own theme directly inside your project.  Rewrite all or part of the styles of the different components.</p>
+<h4>Focus</h4>
+<p>The framework provide 2 styles of focus element.</p>
+<ul>
+<li>border : a white border all around the focused element.</li>
+<li>scale : the focused element is scale with a quick animation.</li>
+</ul>
+<p>Can be usefull performances's consideration</p>
+<h4>Navigation</h4>
+<p>The framework is base on the react native navigation for native platforms, and W3C official spacial navigation polyfill for the web platform.
+Access to key events state with a useEffect, for all platforms out of the box.</p>
+<pre class="prettyprint source"><code>const { KeyEventState } = useContext(TVAPPContext)
+
+useEffect(() => {
+            if (KeyEventState.state.type === KeyEventState.KeyEventStates.KEY_DOWN) { ... }
+            else if (KeyEventState.state.type === KeyEventState.KeyEventStates.KEY_UP) { ... }
+    }, [KeyEventState.state])
+</code></pre>
+<p>The framework offer the possibility to work with <a href="https://reactnavigation.org/">react navigation</a>.
+Simply, pass the navigation reference to the config object :</p>
+<pre class="prettyprint source"><code>const navigationRef = React.createRef()
+    return (
+        &lt;NavigationContainer ref={navigationRef}>
+            &lt;TVAPPProvider config={{ focus: { type: 'border' }, navigation: navigationRef }}>
+        &lt;NavigationContainer/>
+    )
+</code></pre>
+<p>Then you can use the customDrawer, back navigation with last item focused, etc.
+By default the root navigation is set to 'Home'. Override the value like this :</p>
+<pre class="prettyprint source"><code>&lt;TVAPPProvider config={{ focus: { type: 'border' }, root: 'Home' }}>
+    &lt;Home/>
+&lt;/TVAPPProvider>
+</code></pre>
+<h4>FocusManager</h4>
+<p>You can provide your own focusManager to set the focus as you want.
+Extend the <a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/managers/FocusManager.js">FocusManager</a> class.</p>
+<pre class="prettyprint source"><code>&lt;TVAPPProvider config={{ focus: { type: 'border' }, focusManager: MyFocusmanager }}>
+    &lt;Home/>
+&lt;/TVAPPProvider>
+</code></pre>
+<p>It can be usefull to set focus behavior between component.</p>
+<h4>Global State</h4>
+<p>Access to the framework global state to detect drawer state, theme and more to come :</p>
+<pre class="prettyprint source"><code>const { GlobalState } = useContext(TVAPPContext)
+
+useEffect(() => {}, [GlobalState.globalState])
+</code></pre>
+<h2>Compilation</h2>
+<p>You need to use a React Native set up to use this framework.
+Also, you need to have Android Studio and Xcode to compile for Android TV and tvOS.</p>
+<p>For using this framework on tvOS you need to add in your app demo inside iOS folder two things :</p>
+<ol>
+<li>Add <code>SRGSSRTypeDisplayVFApp-Medium.ttf</code> and <code>SRGSSRTypeTextVFApp-Medium.ttf</code> as resources</li>
+<li>Add the font reference on yours info.plist (tvOS and iOS)</li>
+</ol>
+<pre class="prettyprint source"><code>&lt;key>UIAppFonts&lt;/key>
+&lt;array>
+    &lt;string>SRGSSRTypeDisplayVFApp-Medium.ttf&lt;/string>
+    &lt;string>SRGSSRTypeTextVFApp-Medium.ttf&lt;/string>
+&lt;/array>
+</code></pre>
+<h2>Work Around - Tips</h2>
+<p>If you want a clean project to compile on each platform (tvOS, AndroidTV and web), you can copy the project <a href="https://bitbucket.org/rtsmb/rts-app-tv_template/src/master/">Project template</a>.</p>
+<p>Add the three dependencies :</p>
+<pre class="prettyprint source"><code>&quot;react-native-linear-gradient&quot;: &quot;^2.5.6&quot;,
+&quot;react-native-web-linear-gradient&quot;: &quot;^1.1.1&quot;,
+&quot;rts-app-tv&quot;: &quot;^0.0.21&quot;
+</code></pre>
+<p>You also maybe should add inside <code>config-overrides.js</code> / <code>alias</code> this line :</p>
+<p><code>'react-native-linear-gradient': 'react-native-web-linear-gradient'</code></p></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">ReadMe</a></h2><h3>Components</h3><ul><li><a href="global.html#CardItem">CardItem</a></li><li><a href="global.html#CarouselItem">CarouselItem</a></li><li><a href="global.html#ColorIcon">ColorIcon</a></li><li><a href="global.html#CustomDrawer">CustomDrawer</a></li><li><a href="global.html#FlatScrollView">FlatScrollView</a></li><li><a href="global.html#FlatScrollViewItem">FlatScrollViewItem</a></li><li><a href="global.html#GridScrollView">GridScrollView</a></li><li><a href="global.html#MediaItem">MediaItem</a></li><li><a href="global.html#MediaItemTime">MediaItemTime</a></li><li><a href="global.html#MediaLabelItem">MediaLabelItem</a></li><li><a href="global.html#PosterItem">PosterItem</a></li><li><a href="global.html#RoundItem">RoundItem</a></li><li><a href="global.html#SwimLane">SwimLane</a></li><li><a href="global.html#SwimLanewebplatform">SwimLane</a></li><li><a href="global.html#SwimLaneHeaderTitle">SwimLaneHeaderTitle</a></li><li><a href="global.html#TopicItem">TopicItem</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Jun 10 2021 11:55:59 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

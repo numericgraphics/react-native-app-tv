@@ -5,6 +5,17 @@ import { MediaItemFullDefaultStyle } from '../styles/MediaItemFullDefaultStyle.s
 import { CarouselItemDefaultStyle } from '../styles/CarouselItemDefaultStyle.style'
 import MediaItemTime from './MediaItemTime'
 
+/**
+ *
+ * @param {String} imageUrl - image url
+ * @param {String} title - titre
+ * @param {String} bait - bait
+ * @param {String} description - description
+ * @param {boolean} isEventStarted - is event started
+ * @param {String} prettyHour - time to start
+ * @param {Object} theme - theme
+ */
+
 const CarouselItem = ({
     imageUrl,
     title,

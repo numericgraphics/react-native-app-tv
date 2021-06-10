@@ -5,6 +5,16 @@ import { MediaItemFullDefaultStyle } from '../styles/MediaItemFullDefaultStyle.s
 import { MediaLabelItemDefaultStyle } from '../styles/MediaLabelItemDefaultStyle.style'
 import MediaItemTime from './MediaItemTime'
 
+/**
+ *
+ * @param {String} imageUrl - image url
+ * @param {String} title - titre
+ * @param {String} bait - bait
+ * @param {boolean} isEventStarted - is event started
+ * @param {String} prettyHour - time to start
+ * @param {Object} theme - theme
+ */
+
 const MediaLabelItem = ({
     imageUrl,
     title,

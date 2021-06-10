@@ -5,9 +5,9 @@ import { RoundItemDefaultStyle } from '../styles/RoundItemDefaultStyle.style'
 
 /**
  *
- * @param imageUrl
- * @param title
- * @param theme
+ * @param {String} imageUrl - image url
+ * @param {String} title - titre
+ * @param {Object} theme - theme
  */
 
 const RoundItem = ({

@@ -6,6 +6,7 @@
 * current version : 0.0.21
 * [Demo](https://bitbucket.org/rtsmb/rts-app-tv-demo)
 * [Project template](https://bitbucket.org/rtsmb/rts-app-tv_template/src/master/)
+* [Documentation](https://bitbucket.org/rtsmb/rts-app-tv/docs/global.html)
 
 ## Dependencies ##
 - React native version 63.4-0
@@ -18,6 +19,8 @@ yarn add rts-app-tv
 ```
 
 ## Components ##
+full [documentation](https://bitbucket.org/rtsmb/rts-app-tv/docs/global.html) for all the components 
+
 List : 
 
 - Swimlane ([native](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/SwimLane/SwimLane.js) / [web](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/SwimLane/SwimLane.web.js))
@@ -100,7 +103,7 @@ For that, you need to give your custom theme in parameters of the `TVAppProvider
 <TVAPPProvider config={{ focus: { type: 'border' }, theme: YourAppTheme }}>
 ```
 
-Take inspiration from the theme [ThemeSRG.js](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/theme/ThemeSRG.js) to create your own theme directly inside your project.  Rewrite all or part of the styles of the different components.
+Take inspiration from the theme [ThemeSRG](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/theme/ThemeSRG.js) to create your own theme directly inside your project.  Rewrite all or part of the styles of the different components.
 
 #### Focus ####
 The framework provide 2 styles of focus element.
@@ -141,7 +144,7 @@ By default the root navigation is set to 'Home'. Override the value like this :
 
 #### FocusManager ####
 You can provide your own focusManager to set the focus as you want.
-Use our [FocusManager.js](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/managers/FocusManager.js).
+Extend the [FocusManager](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/managers/FocusManager.js) class.
 
 ```
 <TVAPPProvider config={{ focus: { type: 'border' }, focusManager: MyFocusmanager }}>

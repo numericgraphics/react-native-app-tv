@@ -8,13 +8,11 @@ import TVAPPContext from '../TVAPPContext'
 import { getClonedRenderItem } from '../utils/tools'
 import AnimatedBorderFocusableHighlight from '../focusable/AnimatedBorderFocusableHighlight'
 
-/** FlatScrollView - NATIVE -WEB
- *
- * @param id
- * @param rowData
- * @param onItemPress
- *
- *************/
+/**
+ * @param {String} id - unique id
+ * @param {Array|Object} rowData - data to render
+ * @param Function} onItemPress - params : String item
+ **/
 
 const FlatScrollView = ({
     id,

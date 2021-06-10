@@ -79,6 +79,4 @@ class FocusManager {
     }
 }
 
-const FocusManagerInstance = new FocusManager()
-
-export default FocusManagerInstance
+export default FocusManager

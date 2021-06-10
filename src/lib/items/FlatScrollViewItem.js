@@ -4,6 +4,16 @@ import LinearGradient from 'react-native-linear-gradient'
 import MediaItemTime from './MediaItemTime'
 import { FlatScrollViewItemDefaultStyle } from '../styles/FlatScrollViewItemDefaultStyle.style'
 
+/**
+ *
+ * @param {String} imageUrl - image url
+ * @param {String} title - titre
+ * @param {String} bait - bait
+ * @param {boolean} isEventStarted - is event started
+ * @param {String} prettyDuration - time to start
+ * @param {Object} theme - theme
+ */
+
 const FlatScrollViewItem = ({
     imageUrl,
     title,

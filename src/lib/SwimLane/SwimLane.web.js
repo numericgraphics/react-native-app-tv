@@ -10,30 +10,26 @@ import AnimatedBorderFocusableHighlight from '../focusable/AnimatedBorderFocusab
 
 const SWIMLANE_CELL_WIDTH = Style.ratio(479)
 
-/****************
-  TODO : follow PR --> https://github.com/necolas/react-native-web/pull/1566
-   Add support for TV Devices: Platform.isTV hasTVPreferredFocus nextFocusLeft nextFocusRight nextFocusTop nextFocusBottom
-   - Next Focused Element need to be showing. swimlane scroll to index 0 when none of these children are focused
-   - Check and modify setSwimLaneFocus function with the swimlane focus management starting by index 0 at the beginning
- ***************/
-
-/** SWIMLANE COMPONENT - WEB
+/**
+ * @description swimlane for web platform
+ * @variation web platform
+ * @param {String} id - unique id
+ * @param {Array|Object} data - data to render
+ * @param {Class} renderItem - render component
+ * @param {String=} title - swimlane title
+ * @param {Object} parent - { parentIndex: Number, parentName: String }
+ * @param {String} type - media type
+ * @param {Object} reducer - dispatch action
+ * @param {Class} componentStyle - swimlane style
+ * @param {Object} focusElementRef - media to focus on start
+ * @param {Function} onLayout - params : String name, Array list
+ * @param {Function} onItemPress - params : String item
+ * @param {Function} onItemFocus  - params : String item, Number index, String key
+ * @param {Function} onItemBlur - params : String item
  *
- * @param id
- * @param data
- * @param renderItem
- * @param title
- * @param parent
- * @param type
- * @param reducer
- * @param componentStyle
- * @param focusElementRef
- * @param onLayout(name, list)
- * @param onItemPress(item)
- * @param onItemFocus(item, index, key)
- * @param onItemBlur(item)
- *
- *******************/
+ * @todo Add support for TV Devices: Platform.isTV hasTVPreferredFocus nextFocusLeft nextFocusRight nextFocusTop nextFocusBottom. Next Focused Element need to be showing. Swimlane scroll to index 0 when none of these children are focused. Check and modify setSwimLaneFocus function with the swimlane focus management starting by index 0 at the beginning
+ * @see https://github.com/necolas/react-native-web/pull/1566
+ **/
 
 const SwimLane = forwardRef(({
     id,
