@@ -6,3 +6,4 @@ export { default as GridScrollView } from './GridScrollView'
 export { default as CustomDrawer } from './CustomDrawer'
 
 export * from './utils'
+export * from './focusable'

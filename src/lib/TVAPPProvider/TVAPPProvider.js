@@ -1,7 +1,8 @@
 import React, { useReducer, useEffect, useState } from 'react'
 import { GlobalReducer, GlobalStates, InitialGlobalState } from '../reducers/GlobalReducer'
 import TVAPPContext from '../TVAPPContext'
-import FocusManager from '../managers/FocusManager'
+import TVFocusManager from '../managers/TVFocusManager'
+import DefaultFocusManager from '../managers/DefaultFocusManager'
 import { BackHandler, NativeModules, Platform, TVEventHandler } from 'react-native'
 import { capitalizeFirstLetter } from '../utils/tools'
 import { InitialKeyEventState, KeyEventsReducer, KeyEventStates } from '../reducers/KeyEventsReducer'
@@ -17,7 +18,7 @@ function TVAPPProvider ({ children, ...props }) {
     const [theme, setTVAPPContextTheme] = useState({ ThemeSRG })
     const [root, setRoot] = useState('Home')
     const [navigation, setNavigation] = useState(undefined)
-    const [focusManager, setFocusManager] = useState(new FocusManager())
+    const [FocusManager, setFocusManager] = useState(DefaultFocusManager)
     const Theme = { theme, setTVAPPContextTheme }
 
     function backAction (e) {
@@ -89,13 +90,13 @@ function TVAPPProvider ({ children, ...props }) {
         if (Object.entries(config).length > 0) {
             for (const [key, value] of Object.entries(config)) {
                 if (key === 'focusManager') {
-                    if (value instanceof FocusManager) {
+                    if (value instanceof TVFocusManager) {
                         setFocusManager(value)
                     } else {
-                        console.log('TVAPPProvider - ERROR - focusManager is not valid')
+                        console.log('TVAPPProvider - ERROR - focusManager object is not valid or not a instance of FocusManager')
                     }
                 } else if (key === 'focus') {
-                    focusManager.setFocus(value)
+                    FocusManager.setFocus(value)
                 } else if (key === 'theme') {
                     setTVAPPContextTheme(value)
                 } else if (key === 'root') {
@@ -128,7 +129,7 @@ function TVAPPProvider ({ children, ...props }) {
         }
     }, [])
 
-    return <TVAPPContext.Provider value={{ KeyEventState, GlobalState, focusManager, Theme }}>{children}</TVAPPContext.Provider>
+    return <TVAPPContext.Provider value={{ KeyEventState, GlobalState, FocusManager, Theme }}>{children}</TVAPPContext.Provider>
 }
 
 export default TVAPPProvider

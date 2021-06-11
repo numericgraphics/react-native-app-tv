@@ -1,4 +1,4 @@
-class FocusManager {
+class TVFocusManager {
     constructor () {
         this.focus = {
             ref: null,
@@ -79,4 +79,4 @@ class FocusManager {
     }
 }
 
-export default FocusManager
+export default TVFocusManager

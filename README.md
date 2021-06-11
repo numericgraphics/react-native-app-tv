@@ -3,7 +3,7 @@
 
 ### RTS TV App Framework ###
 * Simply and easily build an application for Smart TV, with a unique project for AndroidTV, TvOS and Web platforms (Tizen, webOs)
-* current version : 0.0.21
+* current version : 0.0.23
 * [Demo](https://bitbucket.org/rtsmb/rts-app-tv-demo)
 * [Project template](https://bitbucket.org/rtsmb/rts-app-tv_template/src/master/)
 * [Documentation](https://bitbucket.org/rtsmb/rts-app-tv/docs/global.html)
@@ -144,7 +144,7 @@ By default the root navigation is set to 'Home'. Override the value like this :
 
 #### FocusManager ####
 You can provide your own focusManager to set the focus as you want.
-Extend the [FocusManager](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/managers/FocusManager.js) class.
+Extend the [TVFocusManager](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/managers/TVFocusManager.js) class.
 
 ```
 <TVAPPProvider config={{ focus: { type: 'border' }, focusManager: MyFocusmanager }}>
@@ -228,7 +228,7 @@ Add the three dependencies :
 ```
 "react-native-linear-gradient": "^2.5.6",
 "react-native-web-linear-gradient": "^1.1.1",
-"rts-app-tv": "^0.0.21"
+"rts-app-tv": "^0.0.23"
 ```
 
 You also maybe should add inside `config-overrides.js` / `alias` this line : 
