@@ -1,5 +1,5 @@
 import { Dimensions, Platform } from 'react-native'
-import Style from '../utils/Style'
+import { Style } from '../utils/Style'
 import { hexToRgbA } from '../utils/tools'
 
 const windowWidth = Dimensions.get('window').width

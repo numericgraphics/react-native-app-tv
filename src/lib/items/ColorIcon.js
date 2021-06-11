@@ -1,6 +1,6 @@
 import React from 'react'
 import { View } from 'react-native'
-import Style from '../utils/Style'
+import { Style } from '../utils/Style'
 
 /**
  *

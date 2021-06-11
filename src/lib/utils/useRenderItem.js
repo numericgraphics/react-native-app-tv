@@ -8,7 +8,7 @@ import CardItem from '../items/CardItem'
 import CarouselItem from '../items/CarouselItem'
 import MediaItem from '../items/MediaItem'
 
-function useRenderItem (type) {
+export function useRenderItem (type) {
     switch (type) {
     case MEDIA_TYPE.ROUND:
         return <RoundItem/>
@@ -27,4 +27,3 @@ function useRenderItem (type) {
         return <MediaItem/>
     }
 }
-export default useRenderItem

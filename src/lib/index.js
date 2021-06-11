@@ -5,5 +5,5 @@ export { default as FlatScrollView } from './FlatScrollView'
 export { default as GridScrollView } from './GridScrollView'
 export { default as CustomDrawer } from './CustomDrawer'
 
-export * from './utils'
-export * from './focusable'
+export { default as utils } from './utils'
+export { default as focusable } from './focusable'

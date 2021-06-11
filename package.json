@@ -1,6 +1,6 @@
 {
   "name": "rts-app-tv",
-  "version": "0.0.23",
+  "version": "0.0.27",
   "description": "RTS TV App Framework",
   "private": false,
   "main": "dist/index.js",

@@ -2,7 +2,7 @@ import React, { forwardRef, useRef, memo } from 'react'
 import { Animated, TouchableHighlight, View } from 'react-native'
 
 // eslint-disable-next-line react/display-name
-const AnimatedFocusableHighlight = forwardRef((props, ref) => {
+export const AnimatedFocusableHighlight = memo(forwardRef((props, ref) => {
     const { onPress, onFocus, onBlur, style, children } = props
     const scaleAnimated = useRef(new Animated.Value(1)).current
 
@@ -54,6 +54,4 @@ const AnimatedFocusableHighlight = forwardRef((props, ref) => {
         </TouchableHighlight>
 
     )
-})
-
-export default memo(AnimatedFocusableHighlight)
+}))

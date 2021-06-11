@@ -1,12 +1,12 @@
 import React, { createRef, useEffect, useRef, useState, useCallback, useContext, memo } from 'react'
 import { Text, View, findNodeHandle } from 'react-native'
-import AnimatedFocusableHighlight from '../focusable/AnimatedFocusableHighlight'
+import { AnimatedFocusableHighlight } from '../focusable/AnimatedFocusableHighlight'
 import { FlatScrollViewDefaultStyle } from '../styles/FlatScrollViewDefaultStyle.style'
+import { AnimatedBorderFocusableHighlight } from '../focusable/AnimatedBorderFocusableHighlight'
 import FlatScrollViewItem from '../items/FlatScrollViewItem'
 import { useMediaList } from '../utils/useMediaList'
 import TVAPPContext from '../TVAPPContext'
 import { getClonedRenderItem } from '../utils/tools'
-import AnimatedBorderFocusableHighlight from '../focusable/AnimatedBorderFocusableHighlight'
 
 /**
  * @param {String} id - unique id

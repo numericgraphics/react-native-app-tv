@@ -1,12 +1,12 @@
 import React, { forwardRef, useRef, useCallback, useState, useEffect, memo, useContext } from 'react'
 import { View, Animated } from 'react-native'
-import Style from '../utils/Style'
+import { Style } from '../utils/Style'
 import { getClonedRenderItem } from '../utils/tools'
-import AnimatedFocusableHighlight from '../focusable/AnimatedFocusableHighlight'
+import { AnimatedFocusableHighlight } from '../focusable/AnimatedFocusableHighlight'
 import { SwimLaneGenericDefaultStyle } from '../styles/SwimLaneGeneric.style'
 import TVAPPContext from '../TVAPPContext'
 import { useMediaList } from '../utils/useMediaList'
-import AnimatedBorderFocusableHighlight from '../focusable/AnimatedBorderFocusableHighlight'
+import { AnimatedBorderFocusableHighlight } from '../focusable/AnimatedBorderFocusableHighlight'
 
 const SWIMLANE_CELL_WIDTH = Style.ratio(479)
 

@@ -2,7 +2,7 @@ import React, { useState, forwardRef, memo } from 'react'
 import { TouchableHighlight, View } from 'react-native'
 
 // eslint-disable-next-line react/display-name
-const FocusableHighlight = forwardRef((props, ref) => {
+export const FocusableHighlight = memo(forwardRef((props, ref) => {
     const [focused, setFocused] = useState(false)
 
     return (
@@ -38,6 +38,4 @@ const FocusableHighlight = forwardRef((props, ref) => {
             {props.children || <View />}
         </TouchableHighlight>
     )
-})
-
-export default memo(FocusableHighlight)
+}))

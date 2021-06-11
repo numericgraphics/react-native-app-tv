@@ -1,6 +1,6 @@
 import { hexToRgbA } from '../utils/tools'
 
-const Colors = {
+export const Colors = {
     // Theme SSR
     UNFOCUSED_COLOR: '#262626',
     PLAY_BUTTON_COLOR: '#262626',
@@ -21,4 +21,3 @@ const Colors = {
     OVERLAY_2: hexToRgbA('#161616', 0.8),
     TRANSPARENT: 'transparent'
 }
-export default Colors

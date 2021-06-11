@@ -1,3 +1,7 @@
-export { default as AnimatedBorderFocusableHighlight } from './AnimatedBorderFocusableHighlight'
-export { default as AnimatedFocusableHighlight } from './AnimatedFocusableHighlight'
-export { default as FocusableHighlight } from './FocusableHighlight'
+import { AnimatedBorderFocusableHighlight } from './AnimatedBorderFocusableHighlight'
+import { AnimatedFocusableHighlight } from './AnimatedFocusableHighlight'
+import { FocusableHighlight } from './FocusableHighlight'
+
+const focusable = { AnimatedBorderFocusableHighlight, AnimatedFocusableHighlight, FocusableHighlight }
+
+export default focusable

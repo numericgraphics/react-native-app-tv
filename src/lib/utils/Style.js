@@ -1,5 +1,5 @@
 import { PixelRatio, StyleSheet, Dimensions } from 'react-native'
-import Colors from './Colors'
+import { Colors } from './Colors'
 
 // Get pixel ratio
 const pixelRatio = PixelRatio.get()
@@ -14,7 +14,7 @@ console.log('DEBUG - window width', width)
 console.log('DEBUG - window height', height)
 console.log('DEBUG - RN-PixelRatio', pixelRatio)
 
-const Style = {
+export const Style = {
     buttonFocusedColor: Colors.TRANSPARENT,
     detailButtonColor: '#bdbdbd',
     px: (size) => {
@@ -115,5 +115,3 @@ Style.styles = StyleSheet.create({
         height: '100%'
     }
 })
-
-export default Style

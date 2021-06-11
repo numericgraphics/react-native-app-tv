@@ -1,0 +1,1 @@
+var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports,"__esModule",{value:true});exports.default=void 0;var _TVFocusManager=_interopRequireDefault(require("./TVFocusManager"));var DefaultFocusManager=new _TVFocusManager.default();var _default=DefaultFocusManager;exports.default=_default;

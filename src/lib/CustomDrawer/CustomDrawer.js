@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, memo, useCallback, useMemo, useContext } from 'react'
 import { Animated, findNodeHandle, Image, Text, View, Platform } from 'react-native'
-import FocusableHighlight from '../focusable/FocusableHighlight'
+import { FocusableHighlight } from '../focusable/FocusableHighlight'
 import { CustomDrawerDefaultStyle } from '../styles/CustomDrawerDefaultStyle.style'
 import { randomColors } from '../utils/tools'
 import ColorIcon from '../items/ColorIcon'
