@@ -6,8 +6,8 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "repository": {
-    "type": "bitbucket",
-    "url": "https://bitbucket.org:rtsmb/rts-app-tv.git"
+    "type": "github",
+    "url": "git@github.com:SRGSSR/rts-app-tv.git"
   },
   "scripts": {
     "android": "react-native run-android",

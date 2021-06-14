@@ -6,7 +6,7 @@
 * current version : 0.0.27
 * [Demo](https://bitbucket.org/rtsmb/rts-app-tv-demo)
 * [Project template](https://bitbucket.org/rtsmb/rts-app-tv_template/src/master/)
-* [Documentation](https://bitbucket.org/rtsmb/rts-app-tv/docs/global.html)
+* [Documentation](https://srgssr.github.io/rts-app-tv/index.html)
 
 ## Dependencies ##
 - React native version 63.4-0
@@ -19,25 +19,25 @@ yarn add rts-app-tv
 ```
 
 ## Components ##
-full [documentation](https://bitbucket.org/rtsmb/rts-app-tv/docs/global.html) for all the components 
+full [documentation](https://srgssr.github.io/rts-app-tv/index.html) for all the components 
 
 List : 
 
-- Swimlane ([native](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/SwimLane/SwimLane.js) / [web](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/SwimLane/SwimLane.web.js))
-- [Flat list](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/FlatScrollView/FlatScrollView.js)
-- [Grid](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/GridScrollView/GridScrollView.js)
+- Swimlane ([native](https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/SwimLane/SwimLane.js) / [web](https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/SwimLane/SwimLane.web.js))
+- [Flat list](https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/FlatScrollView/FlatScrollView.js)
+- [Grid](https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/GridScrollView/GridScrollView.js)
 
 Items :
 
-- [Card](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/CardItem.js)
-- [Media](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/MediaItem.js)
-- [Poster](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/PosterItem.js)
-- [Round](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/RoundItem.js)
-- [Topic](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/TopicItem.js)
+- [Card](https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/items/CardItem.js)
+- [Media](https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/items/MediaItem.js)
+- [Poster](https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/items/PosterItem.js)
+- [Round](https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/items/RoundItem.js)
+- [Topic](https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/items/TopicItem.js)
 
 Navigation :
 
-- [Drawer](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/CustomDrawer/CustomDrawer.js)
+- [Drawer](https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/CustomDrawer/CustomDrawer.js)
 
 
 ## Usage ##
@@ -103,7 +103,7 @@ For that, you need to give your custom theme in parameters of the `TVAppProvider
 <TVAPPProvider config={{ focus: { type: 'border' }, theme: YourAppTheme }}>
 ```
 
-Take inspiration from the theme [ThemeSRG](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/theme/ThemeSRG.js) to create your own theme directly inside your project.  Rewrite all or part of the styles of the different components.
+Take inspiration from the theme [ThemeSRG](https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/theme/ThemeSRG.js) to create your own theme directly inside your project.  Rewrite all or part of the styles of the different components.
 
 #### Focus ####
 The framework provide 2 styles of focus element.
@@ -144,7 +144,7 @@ By default the root navigation is set to 'Home'. Override the value like this :
 
 #### FocusManager ####
 You can provide your own focusManager to set the focus as you want.
-Extend the [TVFocusManager](https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/managers/TVFocusManager.js) class.
+Extend the [TVFocusManager](https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/managers/TVFocusManager.js) class.
 
 ```
 <TVAPPProvider config={{ focus: { type: 'border' }, focusManager: MyFocusmanager }}>
