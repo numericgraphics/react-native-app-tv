@@ -7,10 +7,11 @@ export const CustomDrawerDefaultStyle = {
     drawerStyle: {
         position: 'absolute',
         top: 0,
-        left: Platform.OS !== 'web' ? (windowWidth - Style.ratio(25)) : 0,
-        width: Platform.OS === 'ios' ? Style.ratio(50) : Style.ratio(25),
+        left: Platform.OS !== 'web' ? (windowWidth) : 0,
+        width: 0,
         height: '100%',
-        backgroundColor: Colors.OVERLAY_2
+        borderWidth: 0,
+        backgroundColor: 'transparent'
     },
     container: {
         height: '100%',
