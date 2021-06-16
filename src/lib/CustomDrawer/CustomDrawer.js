@@ -190,7 +190,7 @@ function CustomDrawer ({
                                     ? getIconWeb(icons[index].source)
                                     : getIcon(icons[index].source)
                                 : <ColorIcon size={28} color={getRandomColor} />}
-                            {isDrawerOpen && <Text style={style.text}>{route.name}</Text>}
+                            {isDrawerOpen && <Text style={[style.text, style.h3]}>{route.name}</Text>}
                         </View>
                     </FocusableHighlight>
                 )
