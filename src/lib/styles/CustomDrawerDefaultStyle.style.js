@@ -42,7 +42,6 @@ export const CustomDrawerDefaultStyle = {
     },
     text: {
         color: Colors.TEXT_SECONDARY,
-        fontSize: Style.ratio(15),
         marginLeft: Style.ratio(10)
     },
     logo: {

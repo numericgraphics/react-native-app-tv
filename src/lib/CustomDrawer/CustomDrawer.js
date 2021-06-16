@@ -49,7 +49,7 @@ function CustomDrawer ({
     const [isFocused, setFocused] = useState(false)
     const [icons, setIcons] = useState(undefined)
     const [customNavigation, setCustomNavigation] = useState(undefined)
-    const style = { ...CustomDrawerDefaultStyle, ...theme }
+    const style = { ...CustomDrawerDefaultStyle, ...theme?.Typography, ...theme?.Drawer }
     const buttonsRef = useRef([])
 
     function focused () {
@@ -112,7 +112,7 @@ function CustomDrawer ({
                     styleFocused={style.focusedCell}>
                     <View style={style.contentContainer}>
                         {item.source ? getIcon(item.source) : <ColorIcon size={28} color={getRandomColor} />}
-                        {isDrawerOpen && <Text style={style.text}>{item.name}</Text>}
+                        {isDrawerOpen && <Text style={[style.text, style.h3]}>{item.name}</Text>}
                     </View>
                 </FocusableHighlight>
             )

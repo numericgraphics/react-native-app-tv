@@ -128,10 +128,11 @@ export const ThemeSRG = {
         drawerStyle: {
             position: 'absolute',
             top: 0,
-            left: Platform.OS !== 'web' ? (windowWidth - 25) : 0,
-            width: Platform.OS === 'ios' ? 50 : 25,
+            left: Platform.OS !== 'web' ? (windowWidth) : 0,
+            width: 0,
             height: '100%',
-            backgroundColor: innerColors.OVERLAY_2
+            borderWidth: 0,
+            backgroundColor: 'transparent'
         },
         container: {
             height: '100%',
@@ -161,7 +162,6 @@ export const ThemeSRG = {
         },
         text: {
             color: innerColors.TEXT_SECONDARY,
-            fontSize: Style.ratio(15),
             marginLeft: Style.ratio(10)
         },
         logo: {
