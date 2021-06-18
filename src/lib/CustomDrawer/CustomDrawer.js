@@ -102,6 +102,7 @@ function CustomDrawer ({
             return (
                 <FocusableHighlight
                     key={`customNavigation${index}`}
+                    ref={getRef(routes?.length + (index + 1))}
                     onFocus={() => onFocus()}
                     onBlur={() => onBlur()}
                     onPress={() => {
@@ -146,6 +147,18 @@ function CustomDrawer ({
         return findNodeHandle(nextFocusRight.ref)
     }, [])
 
+    const getNextFocusUp = useCallback((index) => {
+        if (index > 0 && buttonsRef.current[index - 1]) {
+            return findNodeHandle(buttonsRef.current[index - 1])
+        }
+    }, [])
+
+    const getNextFocusDown = useCallback((index) => {
+        if (buttonsRef.current[index + 1]) {
+            return findNodeHandle(buttonsRef.current[index + 1])
+        }
+    }, [])
+
     useEffect(() => {
         if (Object.entries(options).length > 0) {
             for (const [key, value] of Object.entries(options)) {
@@ -183,6 +196,8 @@ function CustomDrawer ({
                         styleFocused={style.focusedCell}
                         onLayout={() => onLayout(route.name, index)}
                         nextFocusRight={getNextFocusRight()}
+                        nextFocusUp={getNextFocusUp(index)}
+                        nextFocusDown={getNextFocusDown(index)}
                     >
                         <View style={style.contentContainer}>
                             {(icons && icons[index].source)
