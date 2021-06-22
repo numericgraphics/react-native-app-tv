@@ -47,10 +47,10 @@
 <h3>RTS TV App Framework</h3>
 <ul>
 <li>Simply and easily build an application for Smart TV, with a unique project for AndroidTV, TvOS and Web platforms (Tizen, webOs)</li>
-<li>current version : 0.0.21</li>
+<li>current version : 0.0.33</li>
 <li><a href="https://bitbucket.org/rtsmb/rts-app-tv-demo">Demo</a></li>
 <li><a href="https://bitbucket.org/rtsmb/rts-app-tv_template/src/master/">Project template</a></li>
-<li><a href="https://bitbucket.org/rtsmb/rts-app-tv/docs/global.html">Documentation</a></li>
+<li><a href="https://srgssr.github.io/rts-app-tv/index.html">Documentation</a></li>
 </ul>
 <h2>Dependencies</h2>
 <ul>
@@ -62,24 +62,24 @@
 <pre class="prettyprint source"><code>yarn add rts-app-tv
 </code></pre>
 <h2>Components</h2>
-<p>full <a href="https://bitbucket.org/rtsmb/rts-app-tv/docs/global.html">documentation</a> for all the components</p>
+<p>full <a href="https://srgssr.github.io/rts-app-tv/index.html">documentation</a> for all the components</p>
 <p>List :</p>
 <ul>
-<li>Swimlane (<a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/SwimLane/SwimLane.js">native</a> / <a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/SwimLane/SwimLane.web.js">web</a>)</li>
-<li><a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/FlatScrollView/FlatScrollView.js">Flat list</a></li>
-<li><a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/GridScrollView/GridScrollView.js">Grid</a></li>
+<li>Swimlane (<a href="https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/SwimLane/SwimLane.js">native</a> / <a href="https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/SwimLane/SwimLane.web.js">web</a>)</li>
+<li><a href="https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/FlatScrollView/FlatScrollView.js">Flat list</a></li>
+<li><a href="https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/GridScrollView/GridScrollView.js">Grid</a></li>
 </ul>
 <p>Items :</p>
 <ul>
-<li><a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/CardItem.js">Card</a></li>
-<li><a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/MediaItem.js">Media</a></li>
-<li><a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/PosterItem.js">Poster</a></li>
-<li><a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/RoundItem.js">Round</a></li>
-<li><a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/items/TopicItem.js">Topic</a></li>
+<li><a href="https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/items/CardItem.js">Card</a></li>
+<li><a href="https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/items/MediaItem.js">Media</a></li>
+<li><a href="https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/items/PosterItem.js">Poster</a></li>
+<li><a href="https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/items/RoundItem.js">Round</a></li>
+<li><a href="https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/items/TopicItem.js">Topic</a></li>
 </ul>
 <p>Navigation :</p>
 <ul>
-<li><a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/CustomDrawer/CustomDrawer.js">Drawer</a></li>
+<li><a href="https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/CustomDrawer/CustomDrawer.js">Drawer</a></li>
 </ul>
 <h2>Usage</h2>
 <p>First, import and use our Provider in your <code>App.js</code> :</p>
@@ -156,7 +156,7 @@ const Home = () => {
 <p>For that, you need to give your custom theme in parameters of the <code>TVAppProvider</code> :</p>
 <pre class="prettyprint source"><code>&lt;TVAPPProvider config={{ focus: { type: 'border' }, theme: YourAppTheme }}>
 </code></pre>
-<p>Take inspiration from the theme <a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/theme/ThemeSRG.js">ThemeSRG</a> to create your own theme directly inside your project.  Rewrite all or part of the styles of the different components.</p>
+<p>Take inspiration from the theme <a href="https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/theme/ThemeSRG.js">ThemeSRG</a> to create your own theme directly inside your project.  Rewrite all or part of the styles of the different components.</p>
 <h4>Focus</h4>
 <p>The framework provide 2 styles of focus element.</p>
 <ul>
@@ -191,7 +191,7 @@ By default the root navigation is set to 'Home'. Override the value like this :<
 </code></pre>
 <h4>FocusManager</h4>
 <p>You can provide your own focusManager to set the focus as you want.
-Extend the <a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/managers/FocusManager.js">FocusManager</a> class.</p>
+Extend the <a href="https://github.com/SRGSSR/rts-app-tv/tree/develop/src/lib/managers/TVFocusManager.js">TVFocusManager</a> class.</p>
 <pre class="prettyprint source"><code>&lt;TVAPPProvider config={{ focus: { type: 'border' }, focusManager: MyFocusmanager }}>
     &lt;Home/>
 &lt;/TVAPPProvider>
@@ -204,6 +204,7 @@ Extend the <a href="https://bitbucket.org/rtsmb/rts-app-tv/src/develop/src/lib/m
 useEffect(() => {}, [GlobalState.globalState])
 </code></pre>
 <h2>Compilation</h2>
+<h3>Native platforms</h3>
 <p>You need to use a React Native set up to use this framework.
 Also, you need to have Android Studio and Xcode to compile for Android TV and tvOS.</p>
 <p>For using this framework on tvOS you need to add in your app demo inside iOS folder two things :</p>
@@ -217,12 +218,48 @@ Also, you need to have Android Studio and Xcode to compile for Android TV and tv
     &lt;string>SRGSSRTypeTextVFApp-Medium.ttf&lt;/string>
 &lt;/array>
 </code></pre>
+<h3>Web platforms</h3>
+<h4>Building for Tizen OS (First Step)</h4>
+<p>Required : Tizen Studio (with Tizen SDK tools, TV extension 6.0)</p>
+<ul>
+<li>Build the web project using npm run web:build command in the terminal. This create a build folder at the roots of the project</li>
+<li>Start Tizen Studio and create a new blank projet (pick Template type, TV as application, Web Application as app type and empty template)</li>
+<li>At the last step of creating a blank project. Click on 'More Properties' and disable &quot;Use default location&quot;, now browse to your build folder in your react native project and set it as your Tizen Studio project.</li>
+<li>Go to your build folder and copy the generated Tizen web app files (icon.png, .settings, .project, config.xml, .tproject) into ./public folder of your react native project</li>
+<li>Use Tizen studio to build the project by importing it in your workspace, and run debug or build action</li>
+</ul>
+<p>In the config.xml add to allow api calls :</p>
+<pre class="prettyprint source"><code>&lt;access origin=&quot;https://rts-tv-ssa.vercel.app&quot; subdomains=&quot;true&quot;/>
+    &lt;access origin=&quot;*&quot; subdomains=&quot;true&quot;/>
+</code></pre>
+<h4>Building for WebOS (First Step)</h4>
+<p>Info : webOS TV 5.x (2020) based on web engine Chrome 68 release in june 2018, source : https://www.webosose.org/about/roadmap/roadmap/,
+https://webostv.developer.lge.com/discover/specifications/web-engine/</p>
+<p>Required : WebOS SDK with CLI</p>
+<ul>
+<li>Build the web project using npm run web:build command in the terminal. This create a build folder at the roots of the project.
+Be carfull to remove the &quot;/&quot; for the href call in build/index.html. It should like :</li>
+</ul>
+<pre class="prettyprint source"><code>href=&quot;static/css
+</code></pre>
+<ul>
+<li>Copy and add appinfo file, icons from the webos-build-data folder in the build folder</li>
+<li>In the web folder, Use the terminal to run for package the app :</li>
+</ul>
+<pre class="prettyprint source"><code>ares-package -o webos-build-data build 
+</code></pre>
+<p>this will create webos-build-data folder with the ipk in it</p>
+<ul>
+<li>Run the command :</li>
+</ul>
+<pre class="prettyprint source"><code>ares-install webos-build-data/com.your-app-name.app_0.0.1_all.ipk
+</code></pre>
 <h2>Work Around - Tips</h2>
 <p>If you want a clean project to compile on each platform (tvOS, AndroidTV and web), you can copy the project <a href="https://bitbucket.org/rtsmb/rts-app-tv_template/src/master/">Project template</a>.</p>
 <p>Add the three dependencies :</p>
 <pre class="prettyprint source"><code>&quot;react-native-linear-gradient&quot;: &quot;^2.5.6&quot;,
 &quot;react-native-web-linear-gradient&quot;: &quot;^1.1.1&quot;,
-&quot;rts-app-tv&quot;: &quot;^0.0.21&quot;
+&quot;rts-app-tv&quot;: &quot;^0.0.33&quot;
 </code></pre>
 <p>You also maybe should add inside <code>config-overrides.js</code> / <code>alias</code> this line :</p>
 <p><code>'react-native-linear-gradient': 'react-native-web-linear-gradient'</code></p></article>
@@ -236,13 +273,13 @@ Also, you need to have Android Studio and Xcode to compile for Android TV and tv
 </div>
 
 <nav>
-    <h2><a href="index.html">ReadMe</a></h2><h3>Components</h3><ul><li><a href="global.html#CardItem">CardItem</a></li><li><a href="global.html#CarouselItem">CarouselItem</a></li><li><a href="global.html#ColorIcon">ColorIcon</a></li><li><a href="global.html#CustomDrawer">CustomDrawer</a></li><li><a href="global.html#FlatScrollView">FlatScrollView</a></li><li><a href="global.html#FlatScrollViewItem">FlatScrollViewItem</a></li><li><a href="global.html#GridScrollView">GridScrollView</a></li><li><a href="global.html#MediaItem">MediaItem</a></li><li><a href="global.html#MediaItemTime">MediaItemTime</a></li><li><a href="global.html#MediaLabelItem">MediaLabelItem</a></li><li><a href="global.html#PosterItem">PosterItem</a></li><li><a href="global.html#RoundItem">RoundItem</a></li><li><a href="global.html#SwimLane">SwimLane</a></li><li><a href="global.html#SwimLanewebplatform">SwimLane</a></li><li><a href="global.html#SwimLaneHeaderTitle">SwimLaneHeaderTitle</a></li><li><a href="global.html#TopicItem">TopicItem</a></li></ul>
+    <h2><a href="index.html">ReadMe</a></h2><h3>Namespaces</h3><ul><li><a href="Enumeration.html">Enumeration</a></li><li><a href="Tools.html">Tools</a></li></ul><h3>Components</h3><ul><li><a href="global.html#CardItem">CardItem</a></li><li><a href="global.html#CarouselItem">CarouselItem</a></li><li><a href="global.html#ColorIcon">ColorIcon</a></li><li><a href="global.html#CustomDrawer">CustomDrawer</a></li><li><a href="global.html#FlatScrollView">FlatScrollView</a></li><li><a href="global.html#FlatScrollViewItem">FlatScrollViewItem</a></li><li><a href="global.html#GridScrollView">GridScrollView</a></li><li><a href="global.html#MediaItem">MediaItem</a></li><li><a href="global.html#MediaItemTime">MediaItemTime</a></li><li><a href="global.html#MediaLabelItem">MediaLabelItem</a></li><li><a href="global.html#PosterItem">PosterItem</a></li><li><a href="global.html#RoundItem">RoundItem</a></li><li><a href="global.html#SwimLane">SwimLane</a></li><li><a href="global.html#SwimLanewebplatform">SwimLane</a></li><li><a href="global.html#SwimLaneHeaderTitle">SwimLaneHeaderTitle</a></li><li><a href="global.html#TopicItem">TopicItem</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Jun 10 2021 11:55:59 GMT+0200 (Central European Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Jun 22 2021 11:00:04 GMT+0200 (Central European Summer Time)
 </footer>
 
 <script> prettyPrint(); </script>

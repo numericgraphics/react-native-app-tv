@@ -1,6 +1,5 @@
 
 /**
- *
  * @param {String} imageUrl - image url
  * @param {String} title - titre
  * @param {String} bait - bait

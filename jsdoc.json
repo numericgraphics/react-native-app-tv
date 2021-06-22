@@ -1,6 +1,6 @@
 {
   "source": {
-    "include": ["./docs_src/components"],
+    "include": ["./docs_src/components", "./src/lib/utils"],
     "includePattern": ".(jsx|js|ts|tsx)$"
   },
   "sourceType": "module",
