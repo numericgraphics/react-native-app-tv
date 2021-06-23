@@ -34,7 +34,7 @@ const CarouselItem = ({
                 style={style.image}
             />
             <LinearGradient
-                colors={['rgba(26, 26, 26, 0)', 'rgba(26, 26, 26, 0.6)']}
+                colors={['rgba(22, 22, 22, 0)', 'rgba(22, 22, 22, 1)']}
                 style={style.gradient}
             />
             <View style={[style.textContainer]}>
