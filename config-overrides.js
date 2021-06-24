@@ -28,7 +28,6 @@ module.exports = {
         paths.appPublic = paths.appPath + '/web/public'
         paths.appHtml = paths.appPath + '/web/public/index.html'
         paths.appIndexJs = paths.appPath + '/web/index.js'
-        console.log('paths', paths)
         return paths
     }
 }
